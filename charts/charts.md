@@ -3,7 +3,8 @@
 [Local Industry Evaluator](../../localsite/info/) - Contains multiple widgets - Leaflet, JQuery and React  
 [PPE Supplier Map](../../localsite/map/#show=suppliers) - Leaflet and JQuery  
 [Farm Fresh Produce Map](../../localsite/map/#show=farmfresh) - Leaflet and JQuery  
-
+[Simple embedded map sample](https://model.earth/community/impact/)  
+[Getting started with localsite](https://model.earth/localsite/start/)  
 
 <!--
 ## Environmentally-Enabled <span style="white-space:nowrap">Input-Output Model</span>
@@ -30,6 +31,7 @@ Rstudio has devtools intalled already, so maybe just library(devtools) to call i
 ## React Widgets
 
 The following originate from the [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/).  
+View [module documentation and functions](https://useeiowidgets.imfast.io/apidoc/modules/_main_.html) generated using [TypeDoc](https://typedoc.org/).  
 
 [Industry Input-Output Chart](../build/slider.html#sectors=322130,325520,327910,541200) - 
 [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)  
@@ -39,7 +41,7 @@ The following originate from the [USEEIO-widgets repo](https://github.com/USEPA/
 [Industry Impact Bars with Configuration](../build/impact_chart_config.html)  -->  
 [More React widgets](../build/)  
 
-## JQuery Widgets
+## JQuery Widgets 
 
 [Impact Bubble Chart](bubble/) - D3 and JQuery  
 [Sankey Chart](sankey/) - D3 with Python prep  
@@ -69,7 +71,7 @@ You can use the Github links for embedding.
 from the [GitHub source code](https://github.com/USEPA/useeio-widgets)
 -->
 
-## Option 2: Build Widgets Locally (React)
+## Option 2: Build and Edit Widgets Locally (React)
 
 You can build the USEEIO React widgets locally.  Start with the following repo:
 
@@ -124,53 +126,57 @@ This should create a `build` folder with a `lib` sub-folder containing small Jav
 
 Once built, the `build` folder contains example HTML files that demonstrate the usage of these widgets. 
 [View&nbsp;examples](https://model.earth/io/build/)
-  
-To view these examples locally, you'll need some data that you can download from the Staging instance of the
+ 
+
+**io/build/api folder is already populated from the staging server**
+
+To view widget examples locally, we've download from the Staging instance of the
 [USEEIO API](https://github.com/USEPA/USEEIO_API) via the following:
-
-**Sandbox test server (staging)**
-
-
-The following is returning a 404 error (on Nov 11, 2020). 
-Instead copy the priot "build/app" folder into the new build folder.  
 
 ```
 npm run download -- --endpoint https://smmtool.app.cloud.gov/api
 ```
-This will mirror the static data of the Staging API into the `build/api` folder in two folders: USEEIO and GAUSEEIO.  The second folder contains data for Georgia, the first state using the USEEIO model.  
+The command above mirrors the static data from the Staging API into the `build/api` folder in two folders: USEEIO and GAUSEEIO (and a third for upcoming v2 data).  The GAUSEEIO folder contains data for Georgia.  
 
-Sometimes you may need to run a second time to populate build/api/GAUSEEIO/demands table. (Aug 2020)  
+Sometimes we have to run the command above a second time to populate build/api/GAUSEEIO/demands table. (Aug 2020)  
+
+Note: Every 90 days the staging server requires a reboot, email the [contact person](https://github.com/USEPA/USEEIO_API/wiki/People#Contact) to restart.  
+If the '/api' address returns 404, you can use the staging 
+<a href="https://smmtool.app.cloud.gov/" target="_blank">endpoint overview</a> to see if it is online.  
 
 You may optionall [request the key](https://github.com/USEPA/USEEIO_API/wiki/Use-the-API) to the production API to run the following:  
 
 ```
 npm run download -- --endpoint https://api.edap-cluster.com/useeio/api --apikey [Add API key here]
 ```
+<div class="local" style="display:none; margin-bottom:20px">
+Production API (Requires API key, what's the URL format?) 
+<a href="https://api.edap-cluster.com/?x-api-key=" target="_blank">endpoint overview</a>
+
+
+</div>
+
+Learn more about [using the USEEIO API](https://github.com/USEPA/USEEIO_API/wiki/Use-the-API)
 
 After generating build/api folder from the production API:  
+<!--
 1. Duplicate USEEIOv1.2 to USEEIO for existing script in non-React widgets.  
 2. Duplicate USEEIOv1.2 to GAUSEEIO since GA data currently only resides on the staging server.  
-
-
-Note: Every 90 days the staging server requires a reboot, contact Wes to restart.  
-The '/api' address always returns 404, so use the <a href="https://smmtool.app.cloud.gov/">enpoint overview</a> to see if it is online.  
+-->
+Duplicate GAUSEEIO to USEEIOv1.2 for IO Grid Chart  
 
 You now have two options for viewing the widgets locally.
 
 <b>Option 1:</b> Start a server using the command <code>npm run server</code>. 
 Then open the default port (8080) at http://localhost:8080 in your browser to see the widgets.  Your command window will become inoperable since it is running a server.  Open a new command window to issue further commands.  
 
-<b>Option 2:</b> View at the following URL if the useeio-widgets folder resides in your webroot:
+<b>Option 2:</b> View at the following URL if the "io" folder resides in your webroot.  
+
+[http://localhost:8887/io/build](http://localhost:8887/io/build)  
+
+If you are working in a direct fork of the "useeio-widgets" repo, view here:  
 
 [http://localhost:8887/useeio-widgets/build](http://localhost:8887/useeio-widgets/build)  
-
-How to set up [your webroot](../../localsite/start/).  
-
-<!--
-Note that the production instance requires an API key.
-npm run download -- --endpoint https://path/to/api --apikey an-optional-api-key
-<b>Important:</b> Change the folder created in `build/api` folder from `USEEIOv1.2` to `GAUSEEIO`.
--->
 
 
 ## How to Modify Widgets within VS Code
@@ -187,11 +193,9 @@ Open a command shell window within VS Code (Ctrl + \` backtick) or (View > Termi
 
 Use the up-arrow to run the line above again after making a change.  
 
-View the output of your build at [http://localhost:8887/useeio-widgets/build](../../useeio-widgets/build) 
+View the output of your build at [http://localhost:8887/io/build](http://localhost:8887/io/build) 
 
 Learn more in the VS Code [Node.js Tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).  
-
-If you prefer not to build your javascript each time, the [Community repo](https://model.earth/community) is a good place to edit static javascript pages directly.  The [impact map](https://model.earth/community/impact) is a good page to work on by adding map layers and location filters. Additional filters are visible when viewed on localhost. [Getting started steps](../../localsite/start/).
 
 
 Testing this:  
