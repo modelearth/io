@@ -193,6 +193,8 @@ Open a command prompt in the "io" repo folder and type:
 
 Note: You may need to [Configure your VS Code Editor](https://code.visualstudio.com/docs/setup/setup-overview) so running `code .` launches the editor.  Avoid running in io's parent folder, or your VS Code editor will not allow you to run subsequent commands inside its terminal.  
 
+If you have not yet run `npm install` and the API to JSON download, start with the steps above.  
+
 Next, open a command shell window within VS Code (Ctrl + \` backtick) or (View > Terminal) and type the following: 
 
 	npm run build
