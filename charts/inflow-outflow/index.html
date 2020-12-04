@@ -105,71 +105,75 @@
 </head>
 
 <body>
-<div style="position:relative">
-    <!--  
-    <div class="lazy bgimg bgimg-notfixed" data-src="img/bkgd.jpg" style="opacity:.85">
-        <img src="img/bkgd.jpg" style="opacity:0;width:100%">
-    </div>
-    -->
-
-    <!--
-        Background source:
-        Airbender: https://wallpapersafari.com/w/fXi214
-        Avatar: 
-    -->
-
-    <img class="fixedBkgd backgroundAbsoluteX" src="img/bkgd.jpg" style="width:100%; " alt="">
-
-    <div class="contentpadding" style="position:absolute; top:0px; width:100%; padding-bottom:20px; background-color: rgba(33,33,33,.5);">
-
-        <div style="float:right;" class="hideMobile">
-            <div id="impactIcons">
-                <div>Air</div>
-                <div class="active">Water</div>
-                <div>Land</div>
-                <div>Energy</div>
-                <div>Prosperity</div>
-                <div>Health</div>
-            </div><br>
-
-            
+<div class="mockup localonly" style="display:none">
+    <div style="position:relative">
+        <!--  
+        <div class="lazy bgimg bgimg-notfixed" data-src="img/bkgd.jpg" style="opacity:.85">
+            <img src="img/bkgd.jpg" style="opacity:0;width:100%">
         </div>
+        -->
 
-        <div style="float:left;">
-            <!--
-            Preventing Water Eutrophication
-            Excessive Growth of Algae
-            -->
-            <!-- Minerals and Metal Use -->
-            <h1 class="h1-home" style="margin-top:0px; margin-bottom:10px;">Impacts on Water</h1>
+        <!--
+            Background source:
+            Airbender: https://wallpapersafari.com/w/fXi214
+            Avatar: 
+        -->
 
-            <div style="clear:both; font-size: 13px">
-            <a href="#sectors=326210:100,335991:100&page=1&count=10">Inflow Outflow</a> | 
-            <a href="../../charts/sankey/">Flow Diagram</a>
+        <img class="fixedBkgd backgroundAbsoluteX" src="img/bkgd.jpg" style="width:100%;" alt="">
+
+        <div class="contentpadding" style="position:absolute; top:0px; width:100%; padding-bottom:20px; background-color: rgba(33,33,33,.5);">
+
+            <div style="float:right;" class="hideMobile">
+                <div id="impactIcons">
+                    <div>Air</div>
+                    <div class="active">Water</div>
+                    <div>Land</div>
+                    <div>Energy</div>
+                    <div>Prosperity</div>
+                    <div>Health</div>
+                </div><br>
+
+                
+            </div>
+
+            <div style="float:left;">
+                <!--
+                Preventing Water Eutrophication
+                Excessive Growth of Algae
+                -->
+                <!-- Minerals and Metal Use -->
+                <h1 class="h1-home" style="margin-top:0px; margin-bottom:10px;">Impacts on Water</h1>
+
+                <div style="clear:both; font-size: 13px">
+                <a href="#sectors=326210:100,335991:100&page=1&count=10">Inflow Outflow</a> | 
+                <a href="../../charts/sankey/">Flow Diagram</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<div class="contentpadding">
-    <div style="background-color:#559; padding:30px; max-width:700px; border-radius:8px">
-        <h2 style="padding-top:0px">Ask a question [annyang placeholder]&nbsp; Say . . .</h2>
-        <div class="buttonLinks" style="margin:20px 20px 0 0; font-size: 13px">
-            <a href="https://github.com/modelearth/useeior/blob/Bio-Modeling/inst/extdata/USEEIO_LCIA_Indicators.csv">Show Impact Areas</a>
-            <a href="#chart">Show Water Impacts</a>
-            <a href="../../../community/tools/#projects" style="margin-right:0px">Show Project Areas</a>
+    <div class="contentpadding">
+        <div style="background-color:#559; padding:30px; max-width:700px; border-radius:8px">
+            <h2 style="padding-top:0px">Ask a question [annyang placeholder]&nbsp; Say . . .</h2>
+            <div class="buttonLinks" style="margin:20px 20px 0 0; font-size: 13px">
+                <a href="https://github.com/modelearth/useeior/blob/Bio-Modeling/inst/extdata/USEEIO_LCIA_Indicators.csv">Show Impact Areas</a>
+                <a href="#chart">Show Water Impacts</a>
+                <a href="../../../community/tools/#projects" style="margin-right:0px">Show Project Areas</a>
+            </div>
         </div>
     </div>
+
+    <br>
+    <div id="sectors=326210:100,335991:100&page=1&count=10"></div>
+
+    <br><br><br><br><br><br><br><br>
+
 </div>
 
-<br>
 
-<div id="sectors=326210:100,335991:100&page=1&count=10"></div>
-
-<br><br><br><br><br><br><br><br>
 
 <div style="clear:both;"></div>
 
@@ -177,13 +181,13 @@
 
 <!--hr style="clear:both; margin:10px 0 0 0; padding:10px 0 0 0"-->
 
-<div class="contentpadding" >
+<div class="contentpadding">
 
 <!-- INFLOW OUTFLOW -->
 <!--
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 -->
-<div id="impactTopBar">
+<div id="impactTopBar" class="mockup localonly" style="display:none">
     <div class="active">Quantity of Water Used</div>
     <div>Causes Acid Rain</div>
     <div>Harmful Algae Growth</div><!-- Water Eutrophication -->
@@ -233,9 +237,11 @@ Prior version...<br>
 -->
 
 <br><br>
-We're using <a href="https://material-ui.com/components/slider/">material-ui sliders</a>
+We're using <a href="https://material-ui.com/components/slider/">Material-UI Sliders</a>
+| <a href="#sectors=326210&page=1&count=10&show=mockup">View Airbender Mockup</a>
 
 </div>
+<br>
 
 </body>
 </html>

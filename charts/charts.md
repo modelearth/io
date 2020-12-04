@@ -187,13 +187,15 @@ If you are working in a direct fork of the "useeio-widgets" repo, view here:
 
 ## How to Modify Widgets within VS Code
 
-To make updates in the NodeJS source code, fork the [USEEIO-widgets](https://github.com/USEPA/useeio-widgets/) repo and save in your local webroot (where you've [pointed](../../localsite/start/) http://localhost:8887/)  
+Open a command prompt in the "io" repo folder and type:
 
-Edit the files that reside in useeio-widgets/src. (Avoid editing files in useeio-widgets/build, these will be overwritten when you run the build.)
+	code .
 
-[Configure your VS Code Editor](https://code.visualstudio.com/docs/setup/setup-overview) so running `code .` within the <b>USEEIO-widgets folder</b> launches the editor.  IMPORTANT: Avoid running in the parent folder, or your VS Code editor will not allow you to run subsequent commands inside its terminal.  
+Note: You may need to [Configure your VS Code Editor](https://code.visualstudio.com/docs/setup/setup-overview) so running `code .` launches the editor.  Avoid running in io's parent folder, or your VS Code editor will not allow you to run subsequent commands inside its terminal.  
 
-Open a command shell window within VS Code (Ctrl + \` backtick) or (View > Terminal) and type the following: 
+If you have not yet run `npm install` and the API to JSON download, start with the steps above.  
+
+Next, open a command shell window within VS Code (Ctrl + \` backtick) or (View > Terminal) and type the following: 
 
 	npm run build
 
@@ -201,7 +203,13 @@ Use the up-arrow to run the line above again after making a change.
 
 View the output of your build at [http://localhost:8887/io/build](http://localhost:8887/io/build) 
 
-Learn more in the VS Code [Node.js Tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).  
+Learn more in the VS Code [Node.js Tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial). 
+
+### You may also opt to contribute to the USEEIO-widget repo directly
+
+To make updates in the NodeJS source code, fork the [USEEIO-widgets](https://github.com/USEPA/useeio-widgets/) repo and save in your local webroot (where you've [pointed](../../localsite/start/) http://localhost:8887/)  
+
+Edit the files that reside in useeio-widgets/src. (Avoid editing files in useeio-widgets/build, these will be overwritten when you run the build.) 
 
 
 Testing this:  
