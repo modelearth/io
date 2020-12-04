@@ -1,12 +1,5 @@
-dist/
-.DS_Store
-.env
-env/
-env*
-.venv
-.flaskenv
 node_modules/
-*.pyc
-*.pyo
-.vscode/
 build/
+dist/
+.vscode/
+*.pdf
