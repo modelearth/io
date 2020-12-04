@@ -11,4 +11,3 @@ env*
 .flaskenv
 *.pyc
 *.pyo
-build/
