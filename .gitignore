@@ -3,3 +3,12 @@ build/
 dist/
 .vscode/
 *.pdf
+.DS_Store
+.env
+env/
+env*
+.venv
+.flaskenv
+*.pyc
+*.pyo
+build/
