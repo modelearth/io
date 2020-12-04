@@ -90,7 +90,7 @@ export class SectorList extends Widget {
 
         this.sectors.sort((s1, s2) => strings.compare(s1.name, s2.name));
         const naicsCodes = this._naicsCodes || config.naics;
-        this.sectors = naics.filter(naicsCodes, this.sectors);
+        this.sectors = naics.filterByNAICS(naicsCodes, this.sectors);
 
         // load the matrix A for the display of sector inputs or outputs
         // if this is required
@@ -339,7 +339,7 @@ const Row = (props: RowProps) => {
             padding: "5px 0px",
             whiteSpace: "nowrap",
         }}>
-            {(demandVal > 10000000) ? (demandVal / 1000000000).toFixed(2) : "n/a"}
+            {demandVal ? demandVal.toFixed(3) : null}
         </td>;
     }
 
