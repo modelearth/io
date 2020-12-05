@@ -16,8 +16,6 @@
 <link rel="stylesheet" type="text/css" href="/localsite/css/bootstrap.darkly.min.css"/>
 
 <style>
-
-
 #impactIcons div {
     float: left;
     font-size: 13px;
@@ -63,6 +61,12 @@
     display: inline-block;
     margin: 0 10px 14px 0;
     float: left;
+}
+#impactTopBar div a:visited {
+    color: #fff !important;
+}
+#impactTopBar div a:link {
+    color: #fff !important;
 }
 #impactTopBar .active {
     background-color: #333;
@@ -125,12 +129,12 @@
 
             <div style="float:right;" class="hideMobile">
                 <div id="impactIcons">
-                    <div>Air</div>
-                    <div class="active">Water</div>
-                    <div>Land</div>
-                    <div>Energy</div>
-                    <div>Prosperity</div>
-                    <div>Health</div>
+                    <a href="#indicators=GHG,MGHG,OGHG,HRSP,OZON,SMOG,HAPS"><div>Air</div></a>
+                    <a href="#indicators=WATR,ACID,EUTR,ETOX"><div class="active">Water</div></a>
+                    <a href="#indicators=MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD"><div>Land</div></a>
+                    <a href="#indicators=NNRG,RNRG,ENRG"><div>Energy</div></a>
+                    <a href="#indicators=VADD,JOBS"><div>Prosperity</div></a>
+                    <a href="#indicators=HCAN,HNCN,HTOX"><div>Health</div></a>
                 </div><br>
 
                 
@@ -199,9 +203,9 @@
 <script src="../../build/lib/d3.min.js"></script>
 <script src="../../build/lib/useeio_widgets.js"></script>
 <script>
-	var naics = "311615,311812,321113,221112,113310,322110,311821,311612,325211,311813,311911,311919,311830,311119,322121,311824,311941,325991,311710,311930";
+	//var naics = "311615,311812,321113,221112,113310,322110,311821,311612,325211,311813,311911,311919,311830,311119,322121,311824,311941,325991,311710,311930";
 
-    var naicsCodes = naics.split(',');
+    //var naicsCodes = naics.split(',');
 
     var config = useeio.urlConfig();
 
