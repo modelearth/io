@@ -333,9 +333,11 @@ const Row = (props: RowProps) => {
 
   // display the demand value if showvalues=true
   let demand;
+  
   if (config.showvalues) {
     // demand value
     const demandVal = props.widget.demand[sector.code];
+    const absentValue = isNaN(demandVal);
     demand = (
       <td
         style={{
@@ -344,18 +346,16 @@ const Row = (props: RowProps) => {
           whiteSpace: "nowrap",
         }}
       >
-        {isNaN(demandVal)
-          ? "n/a"
-          : (Math.round(demandVal) / 1000000000).toFixed(3)}
+        {absentValue ? "n/a" : (Math.round(demandVal) / 1000000000).toFixed(3)}
         <span
           style={{
             fontStyle: "italic",
             color: "#555",
-            fontSize: ".8em",
+            fontSize: ".7em",
           }}
         >
-          {isNaN(demandVal) ? null : " Bn."}
-        </span>{" "}
+          {absentValue ? null : " Bn."}
+        </span>
       </td>
     );
   }
