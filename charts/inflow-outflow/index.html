@@ -105,6 +105,19 @@
 <meta name="twitter:description" content="Environmentally Enabled Impact Analysis." />
 <meta name="twitter:image" content="https://model.earth/io/charts/inflow-outflow/img/social-thumb.jpg" />
 
+<script>
+    $(document).ready(function() {
+
+    // `hashChangeEvent` event reside in multiple widgets. 
+    // Called by goHash within localsite.js
+    document.addEventListener('hashChangeEvent', function (elem) {
+        if (location.host.indexOf('localhost') >= 0) {
+            //alert('hashChangeEvent'); // Invoked twice by iogrid inflow-outflow chart
+        }
+    }, false);
+            
+});
+</script>
 
 </head>
 
@@ -130,10 +143,10 @@
             <div style="float:right;" class="hideMobile">
                 <div id="impactIcons">
                     <a href="#indicators=GHG,MGHG,OGHG,HRSP,OZON,SMOG,HAPS"><div>Air</div></a>
-                    <a href="#indicators=WATR,ACID,EUTR,ETOX"><div class="active">Water</div></a>
+                    <a href="#indicators=WATR,ACID,EUTR,ETOX"><div>Water</div></a>
                     <a href="#indicators=MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD"><div>Land</div></a>
                     <a href="#indicators=NNRG,RNRG,ENRG"><div>Energy</div></a>
-                    <a href="#indicators=VADD,JOBS"><div>Prosperity</div></a>
+                    <a href="#indicators=VADD,JOBS"><div class="active">Prosperity</div></a>
                     <a href="#indicators=HCAN,HNCN,HTOX"><div>Health</div></a>
                 </div><br>
 
@@ -145,8 +158,10 @@
                 Preventing Water Eutrophication
                 Excessive Growth of Algae
                 -->
-                <!-- Minerals and Metal Use -->
-                <h1 class="h1-home" style="margin-top:0px; margin-bottom:10px;">Impacts on Water</h1>
+                <!-- Minerals and Metal Use 
+                Impacts on Water
+                -->
+                <h1 class="h1-home" style="margin-top:0px; margin-bottom:10px;">Jobs and Value Added</h1>
 
                 <div style="clear:both; font-size: 13px">
                 <a href="#sectors=326210:100,335991:100&page=1&count=10">Inflow Outflow</a> | 
