@@ -25,11 +25,12 @@ Rstudio has devtools intalled already, so maybe just library(devtools) to call i
 
 ## React Widgets
 
-[View documentation and functions](https://useeiowidgets.imfast.io/apidoc/modules/_main_.html) generated using [TypeDoc](https://typedoc.org/).  
+[View documentation and functions](https://useeiowidgets.imfast.io/apidoc/modules/_main_.html) - 
+[new loc](https://msrocka.github.io/useeio-widget-builds/apidoc/) generated using [TypeDoc](https://typedoc.org/).  
 
-The React widgets originate from the EPA's [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/).  
-You can make widget updates in the [model.earth io repo](https://github.com/modelearth/io/) and we'll push into the EPA repo.  
-The io repo includes additional code for displaying widgets. We use it to publish the [build folder](../build).  
+The React widgets in the io repo originate from the EPA's [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/) - [see build](https://msrocka.github.io/useeio-widget-builds/).  
+You can make widget updates in the [model.earth io repo](https://github.com/modelearth/io/) and we'll push into the EPA repo from [StateData](https://github.com/StateData/useeio-widgets/).  
+The io repo includes additional code for displaying widgets. We also publish via the [io build folder](../build).  
 
 [Inflow-Outflow Chart](inflow-outflow/#sectors=333613,335912,336111&page=1&count=10) - <a href="../build/slider.html#sectors=333613,335912,336111&page=1&count=10">Widget only</a><!-- 
 [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
