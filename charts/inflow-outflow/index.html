@@ -29,7 +29,10 @@
     border: 4px solid #aaa;
     padding: 17px;
 }
-
+#impactIcons div:hover {
+    cursor: pointer;
+    background-color: rgba(33,33,33,.8);
+}
 .fixedBkgd {
     position: fixed;
     z-index: -1;
@@ -123,7 +126,7 @@
 
 <body>
 <div class="mockup localonly" style="display:none;padding:0px">
-    <div style="position:relative; border:1px solid red; width:100%">
+    <div style="position:relative; width:100%">
         <!--  
         <div class="lazy bgimg bgimg-notfixed" data-src="img/bkgd.jpg" style="opacity:.85">
             <img src="img/bkgd.jpg" style="opacity:0;width:100%">
@@ -142,12 +145,13 @@
 
             <div style="float:right;" class="hideMobile">
                 <div id="impactIcons">
-                    <a href="#indicators=GHG,MGHG,OGHG,HRSP,OZON,SMOG,HAPS"><div>Air</div></a>
-                    <a href="#indicators=WATR,ACID,EUTR,ETOX"><div>Water</div></a>
-                    <a href="#indicators=MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD"><div>Land</div></a>
-                    <a href="#indicators=NNRG,RNRG,ENRG"><div>Energy</div></a>
-                    <a href="#indicators=VADD,JOBS"><div class="active">Prosperity</div></a>
-                    <a href="#indicators=HCAN,HNCN,HTOX"><div>Health</div></a>
+                    <!-- ,MGHG,OGHG,HRSP,OZON,SMOG,HAPS some must be wrong -->
+                    <div onclick="goHash({'set':'air','indicators':'GCC'});">Air</div>
+                    <div onclick="goHash({'set':'water','indicators':'WATR,ACID,EUTR,ETOX'});">Water</div>
+                    <div onclick="goHash({'set':'land','indicators':'MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD'});">Land</div>
+                    <div onclick="goHash({'set':'energy','indicators':'NNRG,RNRG,ENRG'});">Energy</div>
+                    <div onclick="goHash({'set':'wealth','indicators':'VADD,JOBS'});" class="active">Wealth</div>
+                    <div onclick="goHash({'set':'health','indicators':'HCAN,HNCN,HTOX'});">Health</div>
                 </div><br>
 
                 
@@ -161,7 +165,7 @@
                 <!-- Minerals and Metal Use 
                 Impacts on Water
                 -->
-                <h1 class="h1-home" style="margin-top:0px; margin-bottom:10px;">Jobs and Value Added</h1>
+                <h1 id="pageTitle" class="h1-home" style="margin-top:0px; margin-bottom:10px;">Jobs and Value Added</h1>
 
                 <div style="clear:both; font-size: 13px">
                 <a href="#sectors=326210:100,335991:100&page=1&count=10">Inflow Outflow</a> | 
@@ -218,7 +222,7 @@
     </div>
 </div>
 
-<div id="iogrid" style="border:4px solid blue"></div>
+<div id="iogrid"></div>
 
 <script src="../../build/lib/d3.min.js"></script>
 <script src="../../build/lib/useeio_widgets.js"></script>
@@ -266,6 +270,44 @@ We're using <a href="https://material-ui.com/components/slider/">Material-UI Sli
 
 </div>
 <br>
+
+<script>
+    // INIT
+var priorHashLocal = {};
+
+/* Allows map to remove selected shapes when backing up. */
+document.addEventListener('hashChangeEvent', function (elem) {
+    console.log("inflow-outflow page detects hashChangeEvent");
+    refreshWidgetsLocal();
+}, false);
+
+function refreshWidgetsLocal() {
+    
+    param = loadParams(location.search,location.hash); // param is declared in localsite.js
+    let hash = getHash();
+    //alert(hash.set + ' ' + priorHashLocal.set);
+
+    // NOTE: params after ? are not included, just the hash.
+    if (hash.set != priorHashLocal.set) {
+        if (hash.set == "air") {
+            $('#pageTitle').text('Air and Climate')
+        } else if (hash.set == "water") {
+            $('#pageTitle').text('Water Use and Quality')
+        } else if (hash.set == "land") {
+            $('#pageTitle').text('Land Use')
+        } else if (hash.set == "energy") {
+            $('#pageTitle').text('Energy Use')
+        } else if (hash.set == "wealth") {
+            $('#pageTitle').text('Jobs and Value Added')
+        } else if (hash.set == "health") {
+            $('#pageTitle').text('Health Impact')
+        }
+        
+    }
+    priorHashLocal = getHash();
+}
+refreshWidgetsLocal();
+</script>
 
 </body>
 </html>
