@@ -287,7 +287,6 @@ function refreshWidgetsLocal() {
     let hash = getHash();
     //alert(hash.set + ' ' + priorHashLocal.set);
 
-    // NOTE: params after ? are not included, just the hash.
     if (hash.set != priorHashLocal.set) {
         if (hash.set == "air") {
             $('#pageTitle').text('Air and Climate')
@@ -302,7 +301,11 @@ function refreshWidgetsLocal() {
         } else if (hash.set == "health") {
             $('#pageTitle').text('Health Impact')
         }
-        
+        $("#impactIcons div").removeClass("active");
+        const capitalizeSetName = hash.set.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+            return letter.toUpperCase();
+        });
+        $("#impactIcons div:contains(" + capitalizeSetName + ")").addClass("active");
     }
     priorHashLocal = getHash();
 }
