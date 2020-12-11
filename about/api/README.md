@@ -7,6 +7,7 @@
 Here are [model files](https://www.dropbox.com/sh/af48m0jsusgr3jg/AACzBSJwujR6LU0jZBhAzys6a?dl=0) for testing.
 You can host an unofficial instance of the USEEIO API on your local computer.  
 
+Here's the [embeddable IO widget frontend](../../../io/charts/) for interacting with .json files output from the API.  
 
 
 <h2 id="countymodel"> USEEIO County Model Methodology</h2>
