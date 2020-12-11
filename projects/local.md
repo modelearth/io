@@ -2,7 +2,7 @@
 
 ## County-Level USEEIO
 
-Break Down National and State Data for county-level outputs. [Methodology Documentation](../countymodel) 
+Break Down National and State Data for county-level outputs. [Methodology Documentation](../about/api/) 
 
 ## Sankey Supply Chains
 
