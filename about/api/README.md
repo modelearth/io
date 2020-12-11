@@ -21,4 +21,6 @@ You can host an unofficial instance of the USEEIO API on your local computer.
 </ul>
 
 
+Also see [County Industry Data Prep](../../../localsite/info/data/) and [Industries by Zip](../../../community/industries/)  
+
 
