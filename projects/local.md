@@ -6,7 +6,7 @@ Break Down National and State Data for county-level outputs. [Methodology Docume
 
 ## Sankey Supply Chains
 
-Display input and output sectors using [D3 Sankey flowcharts](../../community/tools/#charts) 
+Display input and output sectors using [D3 Sankey flowcharts](../../community/start/charts/) 
 for insights on regional value chains.   
 
 ## Scientific Notation Translation
