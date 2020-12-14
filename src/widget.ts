@@ -154,7 +154,7 @@ export abstract class Widget {
         }
     }
 
-    protected abstract async handleUpdate(_: Config): Promise<void>;
+    protected abstract handleUpdate(_: Config): Promise<void>;
 
     /**
      * If this widget is associated with a scope, this function creates a new
@@ -243,6 +243,7 @@ export class UrlConfigTransmitter implements ConfigTransmitter {
         this.config = this.parseUrlConfig({ withScripts: true });
         window.onhashchange = () => this.onHashChanged();
         window.addEventListener("popstate", () => this.onHashChanged());
+        document.addEventListener("hashChangeEvent", () => this.onHashChanged());
     }
 
     /**
@@ -432,6 +433,13 @@ export class UrlConfigTransmitter implements ConfigTransmitter {
                 }
             }
         }
+
+        // check for a global `hiddenhash` variable
+        const hiddenhash = (window as any).hiddenhash;
+        if (typeof hiddenhash === "string") {
+            urls.push("#" + hiddenhash);
+        }
+
         for (const url of urls) {
             const hashParams = this.getParameters(this.getHashPart(url));
             const otherParams = this.getParameters(this.getParameterPart(url));
