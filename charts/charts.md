@@ -206,7 +206,7 @@ View the output of your build at [http://localhost:8887/io/build](http://localho
 
 Learn more in the VS Code [Node.js Tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial). 
 
-### You may also opt to contribute to the USEEIO-widget repo directly
+### You may also contribute to the USEEIO-widget repo directly
 
 To make updates in the NodeJS source code, fork the [USEEIO-widgets](https://github.com/USEPA/useeio-widgets/) repo and save in your local webroot (where you've [pointed](../../localsite/start/) http://localhost:8887/)  
 
@@ -236,8 +236,16 @@ if you don't see it, be sure to right-click in the file folder when opening and 
 
 -->
 
+## FAQs
+
+### Why are some values in the demand vector $0 (blank)?
+
+In some cases there is no final demand for the respective commodity and the production of that commodity is only driven by intermediate industry transactions (note that there are different demand vectors in the model and that the selected demand can be controlled via the configuration attributes). 
 
 
+### How is code formatting enforced?
+
+The `.editorconfig` file contains the formatting settings. Modern editors have plugins for checking EditorConfig settings. This maintains consistench so we can see in the diffs what changed. There is also a ESLint configuration in the project for other settings like semicolon rules etc.
 
 
 ## Sustainable Communities Web Challenge
