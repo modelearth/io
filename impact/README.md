@@ -5,7 +5,7 @@
 Start localhost port 8777 with local io and localsite repos. [Getting started](../../localsite/start)  
 
 
-Run in your io/impact folder to start the local websocket:
+Run in your <b>io/impact/src</b> folder to start the local websocket:
 
 	python3 server.py
     
