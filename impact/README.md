@@ -15,7 +15,7 @@ The current websocket resides at:
 
 ws://127.0.0.1:8181/
 
-Therefore, model.earth/io/impact also shows the orange bars if you have the websocket running locally.  
+Therefore, [model.earth/io/impact](https://model.earth/io/impact/) also shows the orange bars if you have the websocket running locally.  
 
 ### How to run as a website
 
@@ -25,4 +25,8 @@ Next we need to add documentation running as a website. Starting points:
 
 [Websocket Tutorials — Python Serverless Microframework](https://aws.github.io/chalice/tutorials/websockets)
 
+<!--
+	Range slider
+	https://github.com/niandco/range
+-->
 

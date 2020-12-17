@@ -1,8 +1,7 @@
 
 # Industry ML - Websocket Setup
 
-To do: If the steps below do not launch a local websocket,  
-invetigate if anything else resides here in modelearth/industries repo:   
+Source:   
 
 [Final\_submission/data\_viz/national\_choropleth](https://github.com/modelearth/industries/tree/master/Final_submission/io/impact)  
 
@@ -54,7 +53,7 @@ Bug: Running #19 is returning:
 
 ### RUN THE MODEL
 
-Open console in root directory and run:
+Optional: Open console in root directory and run:
     
     cd io/impact
     python3 -m http.server 8000
@@ -68,7 +67,6 @@ Now start to the websocket server.
 (Allows red bars to indicate predictions in lower right bar graph.)
 
     python3 server.py
-    python server.py
 
 You can ignore the joblib error. 
 
