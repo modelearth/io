@@ -19,7 +19,7 @@ Therefore, [model.earth/io/impact](https://model.earth/io/impact/) also shows th
 
 ### How to run as a website
 
-Next we need to add documentation running as a website. Starting points:
+Next we need to add documentation on running as a website. Starting points:
 
 [Adding Websockets to your AWS Serverless application](https://medium.com/artificial-industry/adding-websockets-to-your-aws-serverless-application-d8b1631754f6)  
 
