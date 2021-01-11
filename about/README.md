@@ -17,8 +17,10 @@ Learn about [the USEEIO API](api/)
 
 - Spring 2020: Develop application concepts, on-board interested communities
 - Summer 2020: Modeling and component development
-- Fall/Winter 2020: Develop prototype applications
-- Spring 2021: Develop educational materials
+- Fall 2020: Develop prototype applications
+- Spring 2021: Electric Vehicle Ecosystem
+- Summer 2021: Industry Maps using Bureau of Labor Statistics data
+- Fall 2021: Sustainable Communities Web Challenge
 <br><br>
 
 [Community Web Applications](../../io/projects/)
