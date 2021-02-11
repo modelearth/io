@@ -34,4 +34,4 @@ We're looking to bring on board 2-3 local <span style="display:none" class="geor
 
 
 ## Georgia Community Interest
-Contact Costas Simoglou, Energy Director at the Georgia Centers of Innovation, at 404.923.4033 or csimoglou@georgia.org if you have a group interested in participating.
+Contact Costas Simoglou, Energy Director at the Georgia Center of Innovation, at 404.923.4033 or csimoglou@georgia.org if you have a group interested in participating.
