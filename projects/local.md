@@ -1,4 +1,4 @@
-# Regional Modelling
+# Regional Modeling
 
 ## County-Level USEEIO
 
