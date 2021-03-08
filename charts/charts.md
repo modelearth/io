@@ -212,9 +212,9 @@ To make updates in the NodeJS source code, fork the [USEEIO-widgets](https://git
 
 Edit the files that reside in useeio-widgets/src. (Avoid editing files in useeio-widgets/build, these will be overwritten when you run the build.) 
 
-
-Testing this:  
-[LiveReload](https://www.logicbig.com/tutorials/misc/typescript/project-auto-refresh-with-live-reload.html) will refresh your browser as you edit.  Install using the [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)  
+Build when editing - [Amplify React App](../../amplify/AWS/) uses `npm start` to build on-the-fly.  
+Another option: [LiveReload](https://www.logicbig.com/tutorials/misc/typescript/project-auto-refresh-with-live-reload.html) might refresh your browser as you edit.  
+Install using the [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)  (Please update our documentation, not yet confirmed). 
 
 Get under the hood! Mess with our [Python Samples](../../community/resources/useeio) and 
 [add a new technology to the matrix using RStudio](../naics).
