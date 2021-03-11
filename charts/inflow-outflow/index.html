@@ -13,7 +13,9 @@
 <script type="text/javascript" src="../../../localsite/js/localsite.js"></script>
 <script type="text/javascript" src="../../../localsite/js/navigation.js"></script>
 
+<!--
 <link rel="stylesheet" type="text/css" href="/localsite/css/bootstrap.darkly.min.css"/>
+-->
 
 <style>
 #impactIcons div {
@@ -71,11 +73,18 @@
 #impactTopBar div a:link {
     color: #fff !important;
 }
-#impactTopBar .active {
-    background-color: #333;
+#impactTopHolder {
+    border-bottom: 1px solid #ccc;
 }
 
 /* For darkly */
+/*
+#impactTopHolder {
+    background-color: rgba(33,33,33,.5);
+}
+#impactTopBar .active {
+    background-color: #333;
+}
 .MuiGrid-container {
     background-color: rgba(33,33,33,.8);
 }
@@ -85,14 +94,13 @@
 .MuiDataGrid-mainGridContainer {
     background-color: #fff;
 }
-
 .MuiDataGrid-root .MuiDataGrid-window {
     overflow-x: hidden !important;
-    /* overflow-y: hidden !important; */
 }
 .MuiTypography-h6 {
     color: #333;
 }
+*/
 </style>
 
 <!-- For Facebook -->
@@ -168,9 +176,11 @@
             Avatar: 
         -->
 
+        <!--
         <img class="fixedBkgd backgroundAbsoluteX" src="img/bkgd.jpg" style="width:100%;" alt="">
+        -->
 
-        <div class="contentpadding" style="position:absolute; top:0px; right:0px; width:100%; padding-bottom:20px; background-color: rgba(33,33,33,.5);">
+        <div class="contentpadding" id="impactTopHolder" style="position:absolute; top:0px; right:0px; width:100%; padding-bottom:20px;">
 
             <div style="float:right;" class="hideMobile">
                 <div id="impactIcons">
@@ -204,18 +214,33 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+    <!--
+    <br><br><br><br>
+    -->
 
     <div class="localX" style="displayX:none">
+        <!--
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        -->
 
-        <div class="contentpadding">
-            <div style="background-color:#559; padding:30px; max-width:700px; border-radius:8px">
-                <h2 style="padding-top:0px">Ask a question [annyang placeholder]&nbsp; Say . . .</h2>
+        <div class="contentpadding" style="border-bottom:1px solid #ccc; padding-bottom:0px">
+            <div style="background-colorX:#559; padding:30px; max-width:700px; border-radius:8px">
+                <h1 style="padding-top:0px; font-weight: bolder;">
+                    What would you like to explore?
+                    <!--
+                    Ask a question [annyang placeholder]&nbsp; Say . . .
+                    -->
+                </h1>
                 <div class="buttonLinks" style="margin:20px 20px 0 0; font-size: 13px">
-                    <a href="https://github.com/modelearth/useeior/blob/Bio-Modeling/inst/extdata/USEEIO_LCIA_Indicators.csv">Show Impact Areas</a>
-                    <a href="#chart">Show Water Impacts</a>
-                    <a href="../../../community/tools/#projects" style="margin-right:0px">Show Project Areas</a>
+                    <a href="../../../localsite/info/#geo=US13285">Show Troup County</a><br>
+                    <a href="../../../localsite/info/#show=vehicles">Show Automotive Industry</a><br>
+                    <!--
+                    <a href="../../../localsite/info/#show=ev">Show Combustion and EV</a><br>
+                    -->
+                    <a href="https://github.com/modelearth/useeior/blob/Bio-Modeling/inst/extdata/USEEIO_LCIA_Indicators.csv">Show Impact Areas</a><br>
+                    <a href="#set=water&indicators=WATR,ACID,EUTR,ETOX">Show Water Usage</a><br>
+                    <a href="../../../community/tools/#projects" style="margin-right:0px">Show Programming Projects</a><br>
                 </div>
             </div>
         </div>
