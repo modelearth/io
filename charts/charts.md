@@ -212,7 +212,7 @@ To make updates in the NodeJS source code, fork the [USEEIO-widgets](https://git
 
 Edit the files that reside in useeio-widgets/src. (Avoid editing files in useeio-widgets/build, these will be overwritten when you run the build.) 
 
-Build when editing - [Amplify React App](../../amplify/AWS/) uses `npm start` to build on-the-fly.  
+Build when editing - [Amplify React App](../../aws/amplify/) uses `npm start` to build on-the-fly.  
 Another option: [LiveReload](https://www.logicbig.com/tutorials/misc/typescript/project-auto-refresh-with-live-reload.html) might refresh your browser as you edit.  
 Install using the [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)  (Please update our documentation, not yet confirmed). 
 
