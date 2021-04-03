@@ -87,28 +87,27 @@ You can build the USEEIO React widgets locally.  Start with the following repo:
 The io repo contains a fork of [useeio-widgets](https://github.com/usepa/useeio-widgets), plus a built copy and extras (navigation and configuration examples).  
 
 Also clone the [https://github.com/localsite/localsite](https://github.com/localsite/localsite) repo and place it adjacent to the "io" repo.  
-Here's info on [getting localhost setup on your local computer](../../localsite/start/).
+Here's info on [hosting the static Localsite Framework on your computer](../../localsite/start/).
 
 <!--After building the widgets, you will need an API key to download the industry sector data JSON files, or you can copy the JSON files from the pre-built static copy. Post an issue to request a key.  -->
 
 ---
-
+### Build React Widgets
 To build the React widgets locally you'll need a current version of
 [Node.js](https://nodejs.org) installed. Make sure that the `node` and `npm`
 commands are available in your systems path (you can test this via `node -v` and
 `npm -v` on the command line which should give you the respective version of
 these tools). 
 
-The first step is to install the build tools and dependencies.  
-Note: Use <code>cd useeio-widgets</code> instead if you are working with a direct fork.  
-You can optionally right-click the io folder and choose "New Terminal at Folder" on a Mac.  
-
+The first step is to install the build tools and dependencies.   
 ```
 cd io
+```
+You can optionally right-click the io folder and choose "New Terminal at Folder" on a Mac.  
+Or use <code>cd useeio-widgets</code> if you are just using the source repo.  
+```
 npm install
 ```
-
-
 The above will add a node_modules folder.  
 
 You can ignore errors (about 11), including "Error: `gyp` failed with exit code: 1".  

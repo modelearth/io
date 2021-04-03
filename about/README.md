@@ -19,7 +19,7 @@ Learn about [the USEEIO API](api/)
 - Summer 2020: Modeling and component development
 - Fall 2020: Develop prototype applications
 - Spring 2021: Electric Vehicle Ecosystem
-- Summer 2021: Industry Maps using Bureau of Labor Statistics data
+- Summer 2021: Google Data Commons - Bureau of Labor Statistics, Commute Time, Solar and Recycling Data
 - Fall 2021: Sustainable Communities Web Challenge
 <br><br>
 
