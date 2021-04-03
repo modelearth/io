@@ -35,9 +35,10 @@ The io repo includes additional code for displaying widgets. We also publish via
 [Inflow-Outflow Chart](inflow-outflow/#sectors=333613,335912,336111&page=1&count=10) - <a href="../build/slider.html#sectors=333613,335912,336111&page=1&count=10">Widget only</a><!-- 
 [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
 [Sector List - Mosaic](../build/sector_list.html?view=mosaic&count=50)  
-[Sector List - One indicator](../build/sector_list.html#view=mosaic&indicators=WATR&showvalues=true)<!--
-[Sector List IO - Rubber tire manufacturing example](../build/iotables.html#sectors=326210&page=5)  
-[Industry Impact Bars with Configuration](../build/impact_chart_config.html)  -->  
+[Sector List - Display Values](../build/sector_list.html?view=mosaic&showvalues=true)  
+[Sector List - One indicator](../build/sector_list.html#view=mosaic&indicators=WATR&showvalues=true)  
+[Sector List IO - Tire manufacturing (older version)](../build/iotables.html#sectors=326210&page=5)  
+[Industry Impact Bars with Configuration](../build/impact_chart_config.html)    
 [More React widgets](../build/)  
 
 ## JQuery Widgets 
