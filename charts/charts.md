@@ -27,7 +27,7 @@ Rstudio has devtools intalled already, so maybe just library(devtools) to call i
 
 [View documentation and functions](https://msrocka.github.io/useeio-widget-builds/apidoc/) generated using [TypeDoc](https://typedoc.org/).  
 
-The React widgets in the io repo originate from the EPA's [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/).   
+The React widgets in the [io repo](https://github.com/modelearth/io/) originate from the EPA's [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/).   
 You can make widget updates in the [model.earth io repo](https://github.com/modelearth/io/) and we'll push into the EPA repo from [StateData](https://github.com/StateData/useeio-widgets/).  
 The io repo includes additional code for displaying widgets. We also publish via the [io build folder](../build).  
 
