@@ -17,6 +17,16 @@
 <link rel="stylesheet" type="text/css" href="/localsite/css/bootstrap.darkly.min.css"/>
 -->
 
+<script>
+    param.titleArray = ["US","EPA"]
+    param.startTitle = "Test"
+    param.headerLogo = "<img src='/io/img/logo/epa.png' style='width:28px'>";
+    //param.headerFile = "../community/header.html"
+    //param.footer = "../community/footer.html"
+    
+    $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
+</script>
+
 <style>
 #impactIcons div {
     float: left;
@@ -34,6 +44,7 @@
 #impactIcons div:hover {
     cursor: pointer;
     background-color: rgba(33,33,33,.8);
+    color: #fff;
 }
 .fixedBkgd {
     position: fixed;
@@ -186,17 +197,23 @@
                 <div id="impactIcons">
                     <!-- ,MGHG,OGHG,HRSP,OZON,SMOG,HAPS some must be wrong -->
                     <div onclick="goHash({'set':'air','indicators':'GCC'});">Air</div>
-                    <div onclick="goHash({'set':'water','indicators':'WATR,ACID,EUTR,ETOX'});">Water</div>
-                    <div onclick="goHash({'set':'land','indicators':'MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD'});">Land</div>
-                    <div onclick="goHash({'set':'energy','indicators':'NNRG,RNRG,ENRG'});">Energy</div>
-                    <div onclick="goHash({'set':'wealth','indicators':'VADD,JOBS'});" class="active">Wealth</div>
-                    <div onclick="goHash({'set':'health','indicators':'HCAN,HNCN,HTOX'});">Health</div>
+                    <div onclick="goHash({'set':'water','indicators':'WATR'});">Water</div><!-- ,ACID,EUTR,ETOX -->
+                    <div onclick="goHash({'set':'land','indicators':'LAND'});">Land</div><!-- MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD -->
+                    <div onclick="goHash({'set':'energy','indicators':'ENRG'});">Energy</div><!-- NNRG,RNRG, -->
+                    <div onclick="goHash({'set':'wealth','indicators':'VADD'});" class="active">Wealth</div><!-- ,JOBS -->
+                    <div onclick="goHash({'set':'health','indicators':'HTOX'});">Health</div><!-- HCAN,HNCN,HTOX -->
                 </div><br>
 
                 
             </div>
 
             <div style="float:left;">
+                
+                <div style="clear:both; font-size: 13px">
+                    <a href="../../../localsite/info/#regiontitle=Southeast+Coastal&geo=US13051,US13029,US13179,US13191">Coastal Georgia</a> <span style="position:absolute; font-size:35px; line-height:13px; padding:3px 0 0 1px">&#8227;</span> &nbsp;&nbsp; &nbsp; 
+                    <a href="../../../localsite/info/#show=bioeconomy">Bioeconomy</a>
+                </div>
+
                 <!--
                 Preventing Water Eutrophication
                 Excessive Growth of Algae
@@ -206,26 +223,28 @@
                 -->
                 <h1 id="pageTitle" class="h1-home" style="margin-top:0px; margin-bottom:10px;">Jobs and Value Added</h1>
 
-                <div style="clear:both; font-size: 13px">
-                <a href="#sectors=326210:100,335991:100&page=1&count=10">Inflow Outflow</a> | 
-                <a href="../../charts/sankey/">Flow Diagram</a>
-                </div>
+                
             </div>
         </div>
     </div>
 
-    <br><br><br><br>
+    <br><br><br><br><br>
     <!--
-    <br><br><br><br>
+    <br><br><br>
     -->
+    <div class="contentpadding" style="padding-bottom:0px">
+        <div style="clear:both; font-size: 13px">
+            <a href="#sectors=326210,335991&indicators=VADD">Inflow Outflow</a> | 
+            <a href="../../charts/sankey/">Flow Diagram</a> | 
+            <a href="../../charts/bubble/">Bubble Chart</a> | 
+            <a href="../../charts/">More</a>
+        </div>
+    </div>
 
-    <div class="localX" style="displayX:none">
-        <!--
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        -->
+    <div class="localX" style="display:none">
 
-        <div class="contentpadding" style="border-bottom:1px solid #ccc; padding-bottom:0px">
-            <div style="background-colorX:#559; padding:30px; max-width:700px; border-radius:8px">
+        <div class="contentpadding" style="border-bottom:1px solid #ccc; padding-bottom:20px">
+            <div style="background-colorX:#559; paddingX:30px; max-width:700px; border-radius:8px">
                 <h1 style="padding-top:0px; font-weight: bolder;">
                     What would you like to explore?
                     <!--
@@ -233,7 +252,7 @@
                     -->
                 </h1>
                 <div class="buttonLinks" style="margin:20px 20px 0 0; font-size: 13px">
-                    <a href="../../../localsite/info/#geo=US13285">Show Troup County</a><br>
+                    <!--<a href="../../../localsite/info/#geo=US13285">Show Troup County</a><br>-->
                     <a href="../../../localsite/info/#show=vehicles">Show Automotive Industry</a><br>
                     <!--
                     <a href="../../../localsite/info/#show=ev">Show Combustion and EV</a><br>
@@ -244,7 +263,7 @@
                 </div>
             </div>
         </div>
-        
+        <br><br>
     </div>
 
 
