@@ -1,9 +1,25 @@
 /*
-  Source: https://bl.ocks.org/luluwuluying/ace3699c70a2e3e7a2bb
-  To do: Multicolumn sort (but allow for fixed first column)
-  https://rawgit.com/joequery/Stupid-Table-Plugin/master/examples/multicolumn-sort.html
+  iBubble - Impact Bubble Chart
 */
 
+var iBubble = iBubble || (function(){
+    var _args = {}; // private
+
+    return {
+        init : function(Args) {
+            _args = Args;
+            // some other initialising
+        },
+        helloWorld : function() {
+            alert('Hello World! -' + _args[0]);
+        },
+        priorHash : function() {
+          return ({}); // initially empty
+            //return (getHash()); // Includes hiddenhash. Resides in localsite/localsite.js
+        },
+
+    };
+}());
 
 // `hashChangeEvent` event reside in multiple widgets. 
 // Called by goHash +-++localsite.js
@@ -47,6 +63,7 @@ d3.selectAll("#county").on("change",function(){
 
 par={}
 //attribute mutation observer instead of using hash
+/*
 var observer = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
     if (mutation.type == "attributes") {
@@ -62,25 +79,32 @@ var observer = new MutationObserver(function(mutations) {
     }
   });
 });
+*/
 
-observer.observe(element, {
-  attributes: true //configure it to listen to attribute changes
-});
+// Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+//observer.observe(element, {
+//  attributes: true //configure it to listen to attribute changes
+//});
 
 
 document.addEventListener('hashChangeEvent', function (elem) {  
-  console.log("bubble chart detects hash changed")
+  console.log("bubble chart detects hash change. hiddenhash.naics value: " + hiddenhash.naics);
+
+    //$(document).ready(function(){
+    //   displayImpactBubbles(); // Resides in bubble.js
+    //});
+
   params = loadParams(location.search,location.hash);
   params = mix(params,param); // Gives priority to params, param includes include path value and page settings.
   if(params.x){dropdown.val(params.x)}
   if(params.y){dropdown2.val(params.y)}
   if(params.z){dropdown3.val(params.z)}
   
-  //readyfunc();
-  if(counter==2){
-    counter=0
-  }
-  if(counter==0){  
+  //displayImpactBubbles();
+  //if(counter==2){
+  //  counter=0
+  //}
+  //if(counter==0){  
     geo_list[0]=params.geo
     if(geo_list[1]){
       lastgeo=geo_list[1]
@@ -113,6 +137,8 @@ document.addEventListener('hashChangeEvent', function (elem) {
         }
       }
     }
+
+  /*
   }else{
     geo_list[1]=params.geo
     lastgeo=geo_list[0]
@@ -134,14 +160,18 @@ document.addEventListener('hashChangeEvent', function (elem) {
       }
     }
   }
-
+  */
   if(lastgeo!=currgeo){
-    readyfunc();
+    //alert("bubble all ready")
+    console.log("bubble all ready - getting called 1 to 3 times.")
+    displayImpactBubbles();
   }
-  counter=counter+1
+  //counter=counter+1
 
 
   //the toggle button to show GA or US
+  // BUGBUG - there is now only a class called sector-list (the heatmap). Not sure where attribute "area" resides.
+  /*
   if(document.getElementById("mySelect").checked){
     midFunc(params.x,params.y,params.z,params,"region");
     document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
@@ -149,6 +179,7 @@ document.addEventListener('hashChangeEvent', function (elem) {
     midFunc(params.x,params.y,params.z,params,"all");
     document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
   }
+  */
 }, false);
 
 
@@ -320,8 +351,9 @@ function getDimensions(x,y,z){
   }
 }
 
-function updateTitle(x,y,z){
-  return; // To prevent error
+function updateTitle(x,y,z) {
+  return; // Not currently adding extra title
+
   var unitx, unity, unitz;
   console.log("updateTitle " + x + " " + y + " " + z);
   let params = loadParams(location.search,location.hash);
@@ -400,11 +432,12 @@ function calculateLineData(leastSquares,xRange,iterations){
 }
 
 
-var allData
-$( document ).ready(readyfunc());
-let geo_list={}
-counter=0
-function readyfunc(){
+var allData;
+let geo_list={};
+counter=0;
+
+function displayImpactBubbles(){
+  //alert("bubble displayImpactBubbles")
   dataObject1.stateshown=13;
   let params = loadParams(location.search,location.hash);
   if(params["geo"]){
@@ -424,8 +457,8 @@ function readyfunc(){
   var community_data_root = "https://model.earth";
   d3.csv(community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv").then(function(data){
     data.forEach(function(d) {
-      d.ACID = +d.ACID;
-      d.ENRG= +d.ENRG;
+      d.ACID=+d.ACID;
+      d.ENRG=+d.ENRG;
       d.ETOX=+d.ETOX
       d.EUTR=+d.EUTR
       d.FOOD=+d.FOOD
@@ -463,20 +496,26 @@ function readyfunc(){
       $("#graph-picklist-y").val('WATR');
       $("#graph-picklist-z").val('LAND');
     }
-    document.getElementById("mySelect").onchange = function() {myFunction()};
+    //document.getElementById("mySelect").onchange = function() {
+    $('#switchRedBubbles').click(function () {
+      $("#mySelect").toggle(this.checked);
+      myFunction();
+    });
     function myFunction() {
       if(document.getElementById("mySelect").checked){
+        alert("mySelect is checked");
         midFunc(d3.select("#graph-picklist-x").node().value,
         d3.select("#graph-picklist-y").node().value,
         d3.select("#graph-picklist-z").node().value,
         params,"region")
-        document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
+        //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
       }else{
+        alert("mySelect is NOT checked");
         midFunc(d3.select("#graph-picklist-x").node().value,
         d3.select("#graph-picklist-y").node().value,
         d3.select("#graph-picklist-z").node().value,
         params,"all")
-        document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
+        //document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
       }
     }
     if(document.getElementById("mySelect").checked){
@@ -484,16 +523,17 @@ function readyfunc(){
       d3.select("#graph-picklist-y").node().value,
       d3.select("#graph-picklist-z").node().value,
       params,"region");
-      document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
+      //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
     }else{
       midFunc(d3.select("#graph-picklist-x").node().value,
       d3.select("#graph-picklist-y").node().value,
       d3.select("#graph-picklist-z").node().value,
       params,"all");
-      document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
+      //document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
     }
       
     d3.selectAll(".graph-picklist").on("change",function(){
+      // Update hash and trigger hashChange event. Resides in localsite.js
       goHash({"x":$("#graph-picklist-x").val(),"y":$("#graph-picklist-y").val(),"z":$("#graph-picklist-z").val()});
       //updateChart(d3.select("#graph-picklist-x").node().value,
       ///  d3.select("#graph-picklist-y").node().value,
@@ -511,37 +551,44 @@ var ordinal = d3.scaleOrdinal() // Becomes scaleOrdinal in v4
 
 
 function midFunc(x,y,z,params,boundry){
-  if(params.naics){
-    console.log("params.naics " + params.naics)
-    naicsList=params.naics.split(",")
-    useeioList=[]
-    useeiodetail=[]
-    // TO DO: Add a path root here
-    d3.csv("/io/charts/bubble/data/Crosswalk_MasterCrosswalk.csv").then( function(consdata) {
-      var filteredData = consdata.filter(function(d) {
-        for(i=0;i<naicsList.length;i++){
-          if(d["2012_NAICS_Code"]==naicsList[i]) {
-              useeioList.push(d["USEEIO1_Code"])
-              useeiodetail.push(d["USEEIO1_Commodity"])
+
+  let hash = getHash(); // includes hiddenhash
+  //alert("hash.x " + hash.x + " midFunc hiddenhash.naics in bubble.js: " + hiddenhash.naics);
+  //alert("iBubble.priorHash.x " + iBubble.priorHash.x);
+  if (hash.naics != iBubble.priorHash.naics || hash.x != iBubble.priorHash.x || hash.y != iBubble.priorHash.y || hash.z != iBubble.priorHash.z) {
+    //alert("midFunc hash.naics change in bubble.js from getHash(): " + hash.naics);
+    if (hash.naics) {
+      naicsList=hash.naics.split(",")
+      useeioList=[]
+      useeiodetail=[]
+      // TO DO: Add a path root here
+      d3.csv("/io/charts/bubble/data/Crosswalk_MasterCrosswalk.csv").then( function(consdata) {
+        var filteredData = consdata.filter(function(d) {
+          for(i=0;i<naicsList.length;i++){
+            if(d["2012_NAICS_Code"]==naicsList[i]) {
+                useeioList.push(d["USEEIO1_Code"])
+                useeiodetail.push(d["USEEIO1_Commodity"])
+            }
           }
-        }
+        })
+        updateChart(x,y,z,useeioList,boundry);
       })
-      updateChart(x,y,z,useeioList,boundry)
-    })
-  }else{updateChart(x,y,z,[],boundry)}
+    } else {
+      updateChart(x,y,z,[],boundry);
+    }
+  }
+  //Bubble.priorHash = JSON.stringify(hash); // Cast to primative so modifications to one do not update the other.
+  iBubble.priorHash = jQuery.extend(true, {}, hash);
 }
 
 function updateChart(x,y,z,useeioList,boundry){
-  if(typeof countload=='undefined'){
-    countload=0
-    countload+=1
-    updateChart(x,y,z,useeioList,boundry)
-  }
   if (!(x && y && z)) { // Same as above
     x = 'ENRG';
     y = 'WATR';
     z = 'LAND';
   }
+
+  //alert("updateChart " + x + " hiddenhash.naics in bubble.js: " + hiddenhash.naics);
 
   //Fetch data
   var records = getDimensions(x,y,z);
@@ -936,4 +983,12 @@ function clearBubbleSelection(){
       impactChart.update({
         sectors: [selected_sector],      
       });
+}
+
+// INIT
+if (hiddenhash.naics) { // Set in naics.js
+    console.log("bubble chart init. hiddenhash.naics value: " + hiddenhash.naics);
+    $(document).ready(function(){
+       displayImpactBubbles(); // Resides in bubble.js
+    });
 }

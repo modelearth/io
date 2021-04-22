@@ -33,6 +33,7 @@ The io repo includes additional code for displaying widgets. We also publish via
 
 - [Inflow-Outflow Chart](inflow-outflow/#sectors=333613,335912,336111&set=wealth&indicators=VADD) - (<a href="../build/slider.html#sectors=333613,335912,336111">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
 - [Sector List - Mosaic](../build/sector_list.html?view=mosaic&count=50)  
+- [Sector List - Mosaic Limit Sectors](../build/sector_list.html?naics=333613,335912,336111&view=mosaic&count=50)  
 - [Sector List - Display Values](../build/sector_list.html?view=mosaic&showvalues=true)  
 - [Sector List - One indicator](../build/sector_list.html#view=mosaic&indicators=WATR&showvalues=true)  
 - [Sector List IO - Tire manufacturing (older version)](../build/iotables.html#sectors=326210&page=5)  
@@ -55,10 +56,10 @@ If your local widgets reference the "useeio" folder, they may need to be updated
 ## Related Map Work
 
 - [Simple embedded map sample](/localsite/info/embed.html)<!-- Remove: https://model.earth/community/impact/ -->  
-- [PPE Supplier Map](../../localsite/map/#show=suppliers) - Leaflet and JQuery  
-- [Farm Fresh Produce Map](../../localsite/map/#show=farmfresh) - Leaflet and JQuery  
+- [PPE Supplier Map (from Google Sheet)](../../localsite/map/#show=suppliers) - Leaflet and JQuery  
+- [Farm Fresh Produce Map (from CSV file on GitHub)](../../localsite/map/#show=farmfresh) - Leaflet and JQuery  
 
-
+---
 <br>
 
 

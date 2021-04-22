@@ -6,6 +6,36 @@
     <title>Industry list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="widgets.css">
+
+    <style>
+    .sector-list .noborder {
+        background-color: transparent;
+    }
+    .sector-list-table tbody td {
+      position: relative;
+    }
+    .sector-list-table tbody tr:nth-child(1) td:nth-child(3):after {
+        top: -4px;
+        border-top: 1px solid #333;
+    }
+    .sector-list-table tbody tr:last-child td:nth-child(3):after {
+        bottom: -4px;
+        border-bottom: 1px solid #333;
+    }
+    .sector-list-table tbody td:nth-child(3):after {
+      content: "";
+      position: absolute;
+      padding-leftX:1px;
+      padding-right:6px;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
+      left: -4px;
+      bottom: 0px;
+      top: -2px;
+      width: 100%;
+      z-index: -1;
+    }
+    </style>
 </head>
 
 <body>
@@ -14,15 +44,31 @@
             <div class="matrix-title">Goods & Services</div><br><br>
             <div class="sector-list">
             </div>
+
+            <br>
+            <a href="" onclick="updateNaics();return false;">Try updating hiddenhash.naics</a>
         </div>
     </div>
+    
 
     <script src="lib/d3.min.js"></script>
     <script src="lib/useeio_widgets.js"></script>
     <script>
 
+
+        //sectors = "212230,2122A0,213111,21311A,336111"
+        naics = "336111,2122,213"
+
+        var hiddenhash = {
+            //indicators: "GCC",
+            //naics: naics,
+            //sectors: sectors,
+            count: 10
+        };
+        //hiddenhash.naics = naics;
+
         var config = useeio.urlConfig();
-        var modelID = config.get().model || 'USEEIOv1.2';
+        var modelID = config.get().model || 'USEEIOv2.0-GHG';
 
         var model = useeio.model({
             endpoint: './api',
@@ -35,6 +81,31 @@
             selector: '.sector-list',
         });
         config.join(sectorList);
+        config.update({
+          view: ["mosaic"],
+          count: 15,
+        });
+
+        function updateNaics() {
+            hiddenhash.naics = "2122,213"
+
+            var config = useeio.urlConfig();
+            var modelID = config.get().model || 'USEEIOv2.0-GHG';
+
+            var model = useeio.model({
+                endpoint: './api',
+                model: modelID,
+                asJsonFiles: true,
+            });
+
+            var sectorList = useeio.sectorList({
+                model: model,
+                selector: '.sector-list',
+            });
+            config.join(sectorList);
+
+            alert("test")
+        }
 
     </script>
 </body>
