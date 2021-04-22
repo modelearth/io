@@ -503,14 +503,14 @@ function displayImpactBubbles(){
     });
     function myFunction() {
       if(document.getElementById("mySelect").checked){
-        alert("mySelect is checked");
+        //alert("mySelect is checked");
         midFunc(d3.select("#graph-picklist-x").node().value,
         d3.select("#graph-picklist-y").node().value,
         d3.select("#graph-picklist-z").node().value,
         params,"region")
         //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
       }else{
-        alert("mySelect is NOT checked");
+        //alert("mySelect is NOT checked");
         midFunc(d3.select("#graph-picklist-x").node().value,
         d3.select("#graph-picklist-y").node().value,
         d3.select("#graph-picklist-z").node().value,
