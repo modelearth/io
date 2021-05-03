@@ -436,7 +436,8 @@ var allData;
 let geo_list={};
 counter=0;
 
-function displayImpactBubbles(){
+function displayImpactBubbles() {
+  // BUGBUG - called twice
   //alert("bubble displayImpactBubbles")
   dataObject1.stateshown=13;
   let params = loadParams(location.search,location.hash);
@@ -457,8 +458,8 @@ function displayImpactBubbles(){
   var community_data_root = "https://model.earth";
   d3.csv(community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv").then(function(data){
     data.forEach(function(d) {
-      d.ACID=+d.ACID;
-      d.ENRG=+d.ENRG;
+      d.ACID=+d.ACID
+      d.ENRG=+d.ENRG
       d.ETOX=+d.ETOX
       d.EUTR=+d.EUTR
       d.FOOD=+d.FOOD
@@ -577,8 +578,7 @@ function midFunc(x,y,z,params,boundry){
       updateChart(x,y,z,[],boundry);
     }
   }
-  //Bubble.priorHash = JSON.stringify(hash); // Cast to primative so modifications to one do not update the other.
-  iBubble.priorHash = jQuery.extend(true, {}, hash);
+  iBubble.priorHash = jQuery.extend(true, {}, hash); // Make a detached copy of hadh object
 }
 
 function updateChart(x,y,z,useeioList,boundry){
@@ -620,6 +620,7 @@ function updateChart(x,y,z,useeioList,boundry){
   xScale.domain(d3.extent(records.x));
   zScale.domain(d3.extent(records.z));
   //re-assign data (or assign new data)
+
   var selectedCircles = d3.select("#graph-plane")
     .selectAll(".circles")
     .data(records.pairs)
@@ -729,6 +730,7 @@ function updateChart(x,y,z,useeioList,boundry){
       })
 
       .on("mouseover", function(d) {
+        //alert("mouse")
         if(d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
           d3.select(this)
           .transition()
@@ -989,6 +991,7 @@ function clearBubbleSelection(){
 if (hiddenhash.naics) { // Set in naics.js
     console.log("bubble chart init. hiddenhash.naics value: " + hiddenhash.naics);
     $(document).ready(function(){
+      alert("hiddenhash.naics " + hiddenhash.naics)
        displayImpactBubbles(); // Resides in bubble.js
     });
 }

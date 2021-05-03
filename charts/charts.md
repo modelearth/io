@@ -57,7 +57,7 @@ If your local widgets reference the "useeio" folder, they may need to be updated
 
 - [Simple embedded map sample](/localsite/info/embed.html)<!-- Remove: https://model.earth/community/impact/ -->  
 - [PPE Supplier Map (from Google Sheet)](../../localsite/map/#show=suppliers) - Leaflet and JQuery  
-- [Farm Fresh Produce Map (from CSV file on GitHub)](../../localsite/map/#show=farmfresh) - Leaflet and JQuery  
+- [Farm Fresh Produce Map (from CSV files on GitHub)](../../localsite/map/#show=farmfresh) - Leaflet and JQuery  
 
 ---
 <br>
