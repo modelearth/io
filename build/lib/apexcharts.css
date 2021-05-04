@@ -18,6 +18,9 @@
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
+.apexcharts-canvas.apexcharts-theme-dark {
+  background: #424242;
+}
 
 .apexcharts-inner {
   position: relative;
@@ -46,8 +49,6 @@
   pointer-events: none;
   position: absolute;
   top: 20px;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   white-space: nowrap;
   z-index: 12;
@@ -400,11 +401,11 @@
   rx: 2;
 }
 
-.apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+.apexcharts-canvas.apexcharts-zoomable .hovering-zoom {
   cursor: crosshair
 }
 
-.apexcharts-svg.apexcharts-zoomable.hovering-pan {
+.apexcharts-canvas.apexcharts-zoomable .hovering-pan {
   cursor: move
 }
 

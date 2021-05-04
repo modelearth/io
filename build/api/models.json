@@ -1,1 +1,1 @@
-[{"id":"USEEIOv1.2","name":"USEEIOv1.2","location":"US","description":"USEEIO v1.1 with waste tables and indicators"}]
+[{"id":"USEEIO","name":"USEEIO","location":"US","sectorschema":"BEA_2007_Detail_Code"},{"id":"GAUSEEIO","name":"GAUSEEIO","location":"GA","sectorschema":"BEA_2007_Detail_Code"},{"id":"USEEIOv2.0","name":"USEEIOv2.0","location":"US","sectorschema":"BEA_2012_Detail_Code"},{"id":"USEEIOv2.0-GHG","name":"USEEIOv2.0-GHG","location":"US","sectorschema":"BEA_2012_Detail_Code"}]
