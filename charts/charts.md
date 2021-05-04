@@ -80,13 +80,16 @@ from the [GitHub source code](https://github.com/USEPA/useeio-widgets)
 
 ## Option 2: Build and Edit Widgets Locally (React)
 
-You can build the USEEIO React widgets locally.  Start with the following repo:
+You can build the USEEIO React widgets locally.  
+Start with one of the following repos:  
 
-[https://github.com/modelearth/io](https://github.com/modelearth/io)  
-The io repo contains a fork of [useeio-widgets](https://github.com/usepa/useeio-widgets), plus a built copy and extras (navigation and configuration examples).  
 
-Also clone the [https://github.com/localsite/localsite](https://github.com/localsite/localsite) repo and place it adjacent to the "io" repo.  
-Here's info on [hosting the static Localsite Framework on your computer](../../localsite/start/).
+A. [https://github.com/modelearth/io](https://github.com/modelearth/io) - Contains a fork of [useeio-widgets](https://github.com/usepa/useeio-widgets), plus a built copy, JQuery widgets and extras (navigation and configuration examples).  
+
+If you use the "io" repo, also clone the [https://github.com/localsite/localsite](https://github.com/localsite/localsite) repo and place it adjacent to the "io" repo.  Here's more info on [hosting the Localsite Framework on your computer](../../localsite/start/).
+
+B. [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/) - Only React widgets  
+
 
 <!--After building the widgets, you will need an API key to download the industry sector data JSON files, or you can copy the JSON files from the pre-built static copy. Post an issue to request a key.  -->
 
@@ -98,26 +101,26 @@ commands are available in your systems path (you can test this via `node -v` and
 `npm -v` on the command line which should give you the respective version of
 these tools). 
 
-The first step is to install the build tools and dependencies.   
-You can open the folder from VS Code, or run a command in the folder.
+Open a terminal or VS Code:     
 
-#### Shortcut for opening VS Code
+A. You can right-click the repo folder and choose "New Terminal at Folder" on a Mac.  
 
-Open a command prompt in the "io" repo folder and type `code .`  
-This may be necessary if your build does not run when opening with File > Open.  
+B. Or you can open the folder from VS Code.  (Shortcut for opening VS Code: Open a command prompt in the repo folder and type `code .`  (This may be necessary if your build does not run when opening with File > Open.) You may need to [Configure your VS Code Editor](https://code.visualstudio.com/docs/setup/setup-overview) so running `code .` launches the editor.  Avoid running in the parent folder containing your repo(s) or your VS Code editor may not allow you to run subsequent commands inside its terminal.  
 
-Note: You may need to [Configure your VS Code Editor](https://code.visualstudio.com/docs/setup/setup-overview) so running `code .` launches the editor.  Avoid running in io's parent folder, or your VS Code editor may not allow you to run subsequent commands inside its terminal.  
+To open a command shell window within VS Code by typing (Ctrl + \` backtick) or go to the "View > Terminal". 
 
+<!--
 
 ```
 cd io
 ```
-You can optionally right-click the io folder and choose "New Terminal at Folder" on a Mac.  
+
 Or use <code>cd useeio-widgets</code> if you are just using the source repo.  
+-->
 
 #### Install Node.js Modules  
 
-The following will add a node_modules folder containing javascript source libraries that will be used to output code for the widgets.  To run, you can open a command shell window within VS Code by typing (Ctrl + \` backtick) or go to the "View > Terminal". Enter the following: 
+The following will add a node_modules folder containing javascript source libraries (dependencies) that will be used to output code for the widgets.  
 
 ```
 npm install
@@ -134,7 +137,7 @@ If you receive a "high severity vulnerabilities" warning, run the following as a
 pre-React and with React, ignored:
 	`gyp` failed with exit code: 1
 -->
-Then build the widget libraries. We depoly the build folder pre-built in the io repo.
+Then build the widget libraries. (Note that if you are using the "io" repo you'll already have a pre-built "build" folder.)
 
 ```
 npm run build
@@ -142,8 +145,7 @@ npm run build
 
 This will create or update the `build` folder and a `lib` sub-folder containing small JavaScript libraries used by the USEEIO widgets.  
 
-Once built, the `build` folder contains example HTML files that demonstrate the usage of these widgets. 
-[View&nbsp;examples](https://model.earth/io/build/)
+Once built, the `build` folder contains [example HTML files](https://model.earth/io/build/) that demonstrate the usage of these widgets.  
 
 ### Generate Local JSON files from API
 
@@ -178,8 +180,11 @@ Important: After generating build/api folder from the production API:
 <!--
 1. Duplicate USEEIOv1.2 to USEEIO for existing script in non-React widgets.  
 2. Duplicate USEEIOv1.2 to GAUSEEIO since GA data currently only resides on the staging server.  
--->
+
 Manually copy the GAUSEEIO to a new folder called USEEIOv1.2 for Inflow-Outflow Chart  
+-->
+
+Replace USEEIOv1.2 with USEEIOv2.0
 
 You now have two options for viewing the widgets locally.
 
