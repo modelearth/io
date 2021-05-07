@@ -33,6 +33,9 @@
             model: model,
             selector: '.sector-list',
         });
+        config.withDefaults({
+            count: 10,
+        })
         config.join(sectorList);
 
     </script>

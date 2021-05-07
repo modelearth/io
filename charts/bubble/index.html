@@ -11,11 +11,13 @@
 
 <!-- Use local, but fallback to GitHub if necessary -->
 <script src="../../../localsite/js/localsite.js"></script><!-- for UpdateHash -->
+
+<!--
 <script>typeof param == "undefined" && document.write(unescape('%3Cscript src="//model.earth/localsite/js/localsiteX .js"%3E%3C/script%3E'));</script>
+-->
 
 <link rel="stylesheet" type="text/css" href="../../../localsite/css/bootstrap.darkly.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/bubble.css"/>
-<script src="/io/build/lib/useeio_widgets.js"></script>
 
 
 </head>
@@ -96,78 +98,6 @@
 </div-->
 
 
-<!-- toggle -->
-<!-- source: https://www.w3schools.com/howto/howto_css_switch.asp -->
-<style>
-.selected {
-  stroke-width:100px
-  fill: "yellow"
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 46px;
-  height: 28px;
-}
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #862b23;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #862b23;
-  /* #2196F3 */
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(18px);
-  -ms-transform: translateX(18px);
-  transform: translateX(18px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-<!-- /toggle -->
-
-
-
 <div id="industry-list" class="industry-list">
 
     <div style="float:left; margin-right:50px">
@@ -212,7 +142,8 @@ input:checked + .slider:before {
       
       <div>
             
-        <label id="switchRedBubbles" style="float:left; margin-right:6px" class="switch">
+        <!-- css toggles checkbox, which triggers javascript -->
+        <label style="float:left; margin-right:6px" class="switch">
           <input id="mySelect" type="checkbox" checked>
           <span class="slider round"></span>
         </label>
@@ -238,23 +169,27 @@ input:checked + .slider:before {
 <div style="clear:both"></div>
 <br><br>
 
-<!-- BUBBUG: Currently must be placed after HTML above -->
-<script type="text/javascript" src="js/bubble.js"></script>
-
 <!--default naics to be highlighted-->
+
+
+<!-- Must reside after HTML and hiddenhash.naics above -->
+<script type="text/javascript" src="js/bubble.js"></script>
 <script>
   if(typeof hiddenhash == 'undefined') {
       var hiddenhash = {};
   }
   hiddenhash.naics = "311615,311812,321113,221112,113310,322110,311821,311612,325211,311813,311911,311919,311830,311119,322121,311824,311941,325991,311710,311930";
-  $(document).ready(
-    displayImpactBubbles()
-  );
+  $(document).ready(function () {
+    refreshBubbleWidget();
+    // HACK - call a second time so rollovers work.
+    displayImpactBubbles();
+  });
 </script>
 
 
 
-<!--Michaels's widget: impactchart-->
+
+<!--Michael's widget: impactchart-->
 <link rel="stylesheet" type="text/css" href="widgets.css">
 
 
@@ -274,10 +209,12 @@ input:checked + .slider:before {
 <div id="sector-list" class="sector-list"></div>
 -->
   
-  
+
+<!--
+  <script src="/io/build/lib/useeio_widgets.js"></script>
   <script>
     var config = useeio.urlConfig();
-    var modelID = config.get().model || 'GAUSEEIO';
+    var modelID = config.get().model || 'USEEIOv2.0';
     var model = useeio.model({
       endpoint: '/io/build/api',
       model: modelID,
@@ -343,6 +280,7 @@ input:checked + .slider:before {
     */
 </script>
 <br><br>
+-->
 
 <div class="content contentpadding" style="font-size: 16px">
   <a href="https://bootswatch.com/darkly/" style="float:right" target="darkly">Darkly Theme</a>
