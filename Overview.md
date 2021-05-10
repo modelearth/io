@@ -1,4 +1,4 @@
-# Innovative Web Applications for Local&nbsp;Communities 
+# Innovative Web Applications for&nbsp;Local&nbsp;Communities 
 
 The U.S. Environmental Protection Agency (EPA) is partnering with <span style="display:none" class="georgia">the Georgia Department of Economic Development Centers for Innovation and Georgia Tech to work with</span> local <span style="display:none" class="georgia">Georgia</span> communities to evaluate economic and environmental outcomes of new technologies and investment through web applications that use an economy-wide input-output model of industries, households and the environment. The new online tools will help communities identify and assess opportunities for economic growth and environmental sustainability.
  

@@ -31,7 +31,7 @@ The React widgets in the [io repo](https://github.com/modelearth/io/) originate 
 You can make widget updates in the [model.earth io repo](https://github.com/modelearth/io/) and we'll push into the EPA repo from [StateData](https://github.com/StateData/useeio-widgets/).  
 The io repo includes additional code for displaying widgets. We also publish via the [io build folder](../build).  
 
-- [Inflow-Outflow Chart](inflow-outflow/#sectors=333613,335912,336111&set=wealth&indicators=VADD) - (<a href="../build/slider.html#sectors=333613,335912,336111">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
+- [Inflow-Outflow Chart](inflow-outflow/#sectors=333613,335912,336111&set=wealth&indicators=VADD) - (<a href="../build/slider.html#indicators=ENRG,GHG,VADD&sectors=113000,327310,327400,333613,335912,336111,562111,562212&page=1">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
 - [Sector List - Mosaic](../build/sector_list.html?view=mosaic&count=50)  
 - [Sector List - Mosaic Limit Sectors](../build/sector_list.html?naics=333613,335912,336111&view=mosaic&count=50)  
 - [Sector List - Display Values](../build/sector_list.html?view=mosaic&showvalues=true)  
