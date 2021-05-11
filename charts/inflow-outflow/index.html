@@ -337,8 +337,11 @@
         model: model,
         selector: '#iogrid',
     });
+    config.withDefaults({
+        indicators: ["VADD"],
+        count: 50,
+    })
     config.join(ioGrid);
-
 </script>
 <!-- /INFLOW OUTFLOW -->
 
