@@ -93,10 +93,11 @@ let priorHash_bubble = {};
 document.addEventListener('hashChangeEvent', function (elem) {
   refreshBubbleWidget();
 }, false);
-
+document.addEventListener('hiddenhashChangeEvent', function (elem) {
+  refreshBubbleWidget();
+}, false);
 
 function refreshBubbleWidget() {
-
     let hash = getHash(); // Includes hiddenhash
     params = loadParams(location.search,location.hash); // Also used by loadIndustryData()
 
@@ -138,8 +139,6 @@ function refreshBubbleWidget() {
       }
     }
     */
-
-    
   
     if (priorHash_bubble.state != hash.state) {
         displayImpactBubbles(); // Occurs on INIT
