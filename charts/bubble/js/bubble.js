@@ -431,7 +431,8 @@ counter=0;
 function displayImpactBubbles() {
   console.log("displayImpactBubbles");
 
-  dataObject1.stateshown=13;
+  // TODO: Activate Georgia option when ready
+  //dataObject1.stateshown=13;
   let params = loadParams(location.search,location.hash);
 
   if(params["geo"]){
