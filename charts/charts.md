@@ -97,7 +97,7 @@ If you use the "io" repo, also clone the [https://github.com/localsite/localsite
 
 B. [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/) - Only React widgets  
 
-<span style="background:red; padding:3px; color:#fff">NOTE:</span> The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/)).
+<span style="background:red; padding:3px; color:#fff">NOTE:</span> The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/).
 
 <!--After building the widgets, you will need an API key to download the industry sector data JSON files, or you can copy the JSON files from the pre-built static copy. Post an issue to request a key.  -->
 
@@ -147,7 +147,7 @@ pre-React and with React, ignored:
 -->
 Then build the widget libraries. If you are using the "io" repo you'll already have a pre-built "build" folder.
 
-<span style="background:red; padding:3px; color:#fff">NOTE:</span> We recommend avoiding running the following build command. The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/)).
+<span style="background:red; padding:3px; color:#fff">NOTE:</span> We recommend avoiding running the following build command. The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/).
 
 
 ```
