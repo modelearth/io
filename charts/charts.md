@@ -97,6 +97,7 @@ If you use the "io" repo, also clone the [https://github.com/localsite/localsite
 
 B. [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/) - Only React widgets  
 
+<span style="background:red; padding:3px; color:#fff">NOTE:</span> The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/)).
 
 <!--After building the widgets, you will need an API key to download the industry sector data JSON files, or you can copy the JSON files from the pre-built static copy. Post an issue to request a key.  -->
 
@@ -144,7 +145,10 @@ If you receive a "high severity vulnerabilities" warning, run the following as a
 pre-React and with React, ignored:
 	`gyp` failed with exit code: 1
 -->
-Then build the widget libraries. (Note that if you are using the "io" repo you'll already have a pre-built "build" folder.)
+Then build the widget libraries. If you are using the "io" repo you'll already have a pre-built "build" folder.
+
+<span style="background:red; padding:3px; color:#fff">NOTE:</span> We recommend avoiding running the following build command. The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/)).
+
 
 ```
 npm run build
@@ -172,7 +176,7 @@ Note: Every 90 days the staging server requires a reboot, email the [contact per
 If the '/api' address returns 404, you can use the staging 
 <a href="https://smmtool.app.cloud.gov/" target="_blank">endpoint overview</a> to see if it is online.  
 
-You may optionall [request the key](https://github.com/USEPA/USEEIO_API/wiki/Use-the-API) to the production API to run the following:  
+You may optionall [request the key](https://github.com/USEPA/USEEIO_API/wiki/Use-the-API) to the production API to run the following (Interns may use the key in our Google Sheet):  
 
 ```
 npm run download -- --endpoint https://api.edap-cluster.com/useeio/api --apikey [Add API key here]
