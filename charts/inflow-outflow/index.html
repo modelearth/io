@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Inflow-Outflow</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="../../build/slider.css">
 
@@ -19,6 +19,7 @@
 <!--
 <link rel="stylesheet" type="text/css" href="/localsite/css/bootstrap.darkly.min.css"/>
 -->
+<script type="text/javascript" src="indicator-sets.js"></script>
 
 <script>
     param.titleArray = ["US","EPA"]
@@ -28,6 +29,21 @@
     //param.footer = "../community/footer.html"
     
     $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
+
+
+    // Not used
+    $(document).ready(function() {
+
+        // `hashChangeEvent` event reside in multiple widgets. 
+        // Called by goHash within localsite.js
+        document.addEventListener('hashChangeEvent', function (elem) {
+            if (location.host.indexOf('localhost') >= 0) {
+                //alert('hashChangeEvent'); // Invoked twice by iogrid inflow-outflow chart
+            }
+        }, false);
+                
+    });
+
 </script>
 
 <style>
@@ -130,49 +146,6 @@
 <meta name="twitter:description" content="Environmentally Enabled Impact Analysis." />
 <meta name="twitter:image" content="https://model.earth/io/charts/inflow-outflow/img/social-thumb.jpg" />
 
-<script>
-    let indicatorSets = {
-        "ACID": "Water",
-        "ETOX": "Water",
-        "EUTR": "Water",
-        "GHG": "Air",
-        "MGHG": "Air",
-        "OGHG": "Air",
-        "HCAN": "Health",
-        "HNCN": "Health",
-        "HTOX": "Health",
-        "HRSP": "Air",
-        "OZON": "Air",
-        "SMOG": "Air",
-        "NNRG": "Energy",
-        "RNRG": "Energy",
-        "ENRG": "Energy",
-        "LAND": "Land",
-        "WATR": "Water",
-        "MNRL": "Land",
-        "PEST": "Land",
-        "METL": "Land",
-        "HAPS": "Air",
-        "VADD": "Wealth",
-        "JOBS": "Wealth",
-        "CRHW": "Land",
-        "CMSW": "Land",
-        "FMSW": "Land",
-        "CCDD": "Land",
-    }
-    $(document).ready(function() {
-
-    // `hashChangeEvent` event reside in multiple widgets. 
-    // Called by goHash within localsite.js
-    document.addEventListener('hashChangeEvent', function (elem) {
-        if (location.host.indexOf('localhost') >= 0) {
-            //alert('hashChangeEvent'); // Invoked twice by iogrid inflow-outflow chart
-        }
-    }, false);
-            
-});
-</script>
-
 </head>
 
 <body>
@@ -200,12 +173,12 @@
             <div style="float:right;" class="hideMobile">
                 <div id="impactIcons">
                     <!--  some must be wrong -->
-                    <div onclick="goHash({'set':'air','indicators':'GHG,GCC,MGHG,OGHG,HRSP,OZON,SMOG,HAPS'});">Air</div>
-                    <div onclick="goHash({'set':'water','indicators':'WATR,ACID,EUTR,ETOX'});">Water</div>
-                    <div onclick="goHash({'set':'land','indicators':'LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD'});">Land</div>
-                    <div onclick="goHash({'set':'energy','indicators':'ENRG,NNRG,RNRG'});">Energy</div>
-                    <div onclick="goHash({'set':'health','indicators':'HTOX,HCAN,HNCN,HTOX'});">Health</div>
-                    <div onclick="goHash({'set':'prosperity','indicators':'VADD,JOBS'});">Prosperity</div>
+                    <div onclick="goHashIO({'set':'air','indicators':'GHG,GCC,MGHG,OGHG,HRSP,OZON,SMOG,HAPS'});">Air</div>
+                    <div onclick="goHashIO({'set':'water','indicators':'WATR,ACID,EUTR,ETOX'});">Water</div>
+                    <div onclick="goHashIO({'set':'land','indicators':'LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD'});">Land</div>
+                    <div onclick="goHashIO({'set':'energy','indicators':'ENRG,NNRG,RNRG'});">Energy</div>
+                    <div onclick="goHashIO({'set':'health','indicators':'HTOX,HCAN,HNCN,HTOX'});">Health</div>
+                    <div onclick="goHashIO({'set':'prosperity','indicators':'VADD,JOBS'});">Prosperity</div>
                 </div><br>
 
                 
@@ -347,10 +320,12 @@
         model: model,
         selector: '#iogrid',
     });
+    /*
     config.withDefaults({
         indicators: ["VADD"],
         count: 50,
     })
+    */
     config.join(ioGrid);
 </script>
 <!-- /INFLOW OUTFLOW -->

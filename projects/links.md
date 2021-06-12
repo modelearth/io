@@ -1,6 +1,6 @@
 #Overview
 
-[Project Areas](../../community/) - For the Sustainable Communities Web Challenge    
+[Project Areas](../../community/) - For the Beyond Carbon Challenge    
 
 [Industry Evaluator](../../localsite/info/) - Top Industries by County  
 [Impact Bubble Chart](../../io/charts/bubble/) - Choose 3 indicators for industry comparison    

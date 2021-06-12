@@ -1,8 +1,15 @@
 # Innovative Web Applications for&nbsp;Local&nbsp;Communities 
 
 The U.S. Environmental Protection Agency (EPA) is partnering with <span style="display:none" class="georgia">the Georgia Department of Economic Development Centers for Innovation and Georgia Tech to work with</span> local <span style="display:none" class="georgia">Georgia</span> communities to evaluate economic and environmental outcomes of new technologies and investment through web applications that use an economy-wide input-output model of industries, households and the environment. The new online tools will help communities identify and assess opportunities for economic growth and environmental sustainability.
- 
-Read more [about the project](about).
+
+
+Embedding input-output maps and charts is easy. Here's a sample to try:
+
+```
+<script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?display=everything&show=farmfresh&state=GA"></script>
+```
+
+Read more [about the model](about), view [current projects](../../community/) and join in the [upcoming web challenge](../../community/challenge/).
 
 
 ## Opportunities for communities include
