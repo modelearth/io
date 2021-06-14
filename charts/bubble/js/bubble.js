@@ -141,13 +141,13 @@ function refreshBubbleWidget() {
     */
   
     if (priorHash_bubble.state != hash.state) {
-        displayImpactBubbles(); // Occurs on INIT
+        displayImpactBubbles(1); // Occurs on INIT
     } else if (priorHash_bubble.geo != hash.geo) {
-        displayImpactBubbles();
+        displayImpactBubbles(1);
     } else if (priorHash_bubble.naics != hash.naics) {
-        displayImpactBubbles();
+        displayImpactBubbles(1);
     } else if (priorHash_bubble.x != hash.x || priorHash_bubble.y != hash.y || priorHash_bubble.z != hash.z) {
-        displayImpactBubbles();
+        displayImpactBubbles(1);
     }
     priorHash_bubble = getHash();
 }
@@ -184,120 +184,16 @@ $.getJSON(url, function (data) {
 });
 
 
+
 var parentId = "#graph-wrapper";
 var animDuration = 1200;
 var margin = {top: 40, right: 50, bottom: 55, left: 95};
-var width = 1000 - margin.left - margin.right,    
-  height = 450  - margin.top - margin.bottom;
-
-var xScale = d3.scaleLog()
-  .range([0,width])
-  .clamp(true);
-
-var yScale = d3.scaleLog()
-  .range([height, 0])
-  .clamp(true);
-
-var line = d3.line();
-
-var zScale = d3.scalePow()
-  .exponent(0.2)
-    .range([2,40]);
-
-
-var myTickFormat = function (d) {//Logic to reduce big numbers
-  var f = d3.format(".1f");
-  var limits = [1000000000, 1000000, 1000];
-  var shorteners = ['B','M','K'];
-  if(d>=1000){
-    for(var i in limits) {
-      if(d > limits[i]) {
-        d=(d/limits[i]).toFixed(2) + shorteners[i];
-      }
-    }
-  }else if(d>=0.000001 && d<1000){
-    d=parseFloat((d).toFixed(7).toString())
-  }else{
-    for(j=-6;j>=-24;j--){
-      if(d>=Math.pow(10,j-1) && d<Math.pow(10,j)){
-        d=(d*Math.pow(10,1-j)).toFixed(1)+"*10^-"+(1-j)
-      }
-    }
-    
-  }
-  return d;
-};
-
-var xAxis = d3.axisBottom()
-  .scale(xScale)
-  .tickSize(-height)
-  .tickPadding(8)
-
-  
-  .ticks(8,myTickFormat)
-
-var yAxis = d3.axisLeft()
-  .scale(yScale)
-  .tickSize(-width)
-  .tickPadding(8)
-  .ticks(5,myTickFormat)
-
-var svg = d3.select(parentId).append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .attr("id","svg-parent")
-  .append("g")
-  .attr("id","graph-plane")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-svg.append("g")
-  .attr("class", "x axis")
-  .attr("transform", "translate(0," + (height) + ")")
-
-  .call(xAxis.ticks(8,myTickFormat))
-  .selectAll("text")
-  .attr("y", 0)
-  .attr("x", 9)
-  .attr("dy", ".35em")
-  .attr("transform", "rotate(90)").style("text-anchor", "start");
-
-svg.append("g")
-  .attr("class", "y axis")
-  .attr("transform", "translate("  +0+ ",0)")
-  .call(yAxis.ticks(5,myTickFormat));
-
-svg.append("path")
-  .attr("class","trendline")
-  .attr("stroke-width", 1)
-  .style("stroke","steelblue")
-  .style("fill","none");
-
-var gradient = svg.append("svg:defs")
-  .append("svg:radialGradient")
-  .attr("id", "gradient")
-  .attr("cx", "50%")    //The x-center of the gradient
-  .attr("cy", "50%")    //The y-center of the gradient
-  .attr("r", "50%")  //The radius of the gradient
-  .attr("spreadMethod", "pad");
-
-gradient.append("svg:stop")
-  .attr("offset", "0%")
-  .attr("stop-color", "#F6BDC0")
-  .attr("stop-opacity", 1);
-
-gradient.append("svg:stop")
-  .attr("offset", "100%")
-  .attr("stop-color", "red")
-  .attr("stop-opacity", 1);
-
-
-
-// For rollover popup
-var div = d3.select(parentId).append("div")
-  .attr("class", "tooltip")
-  .style("opacity", 0);
-
-
+var width = 1000 - margin.left - margin.right
+var height = 450  - margin.top - margin.bottom;
+var xScale, yScale, zScale, line;
+var myTickFormat, xAxis, yAxis;
+var rolloverDiv;
+var bubbleSvg, bubbleGradient;
 
 function getDimensions(x,y,z){
 
@@ -428,112 +324,255 @@ var allData;
 let geo_list={};
 counter=0;
 
-function displayImpactBubbles() {
-  console.log("displayImpactBubbles");
+function displayImpactBubbles(attempts) {
+  //console.log("displayImpactBubbles");
 
-  // TODO: Activate Georgia option when ready
-  //dataObject1.stateshown=13;
-  let params = loadParams(location.search,location.hash);
 
-  if(params["geo"]){
-    geo=params["geo"]
-    if (geo.includes(",")){
-        geos=geo.split(",")
-        dataObject1.stateshown=(geos[0].split("US")[1]).slice(0,2)
-    }else{
-        dataObject1.stateshown=(geo.split("US")[1]).slice(0,2)
+  if (typeof customD3loaded !== 'undefined') {
+
+
+
+
+    if (typeof customD3loaded === 'undefined') {
+      console.log("BUGBUG: D3 not yet available"); // Could loop again if/when this occurs
     }
-  }
-  if(dataObject1.stateshown=='13'){
-    model='_GA'
-  }else{
-    model=''
-  }
-  var community_data_root = "https://model.earth";
 
-  // Probably needs to be regenerated for USSEEIOv2.0
-  // https://github.com/modelearth/community-data/tree/master/us/indicators
+    if (typeof bubbleGradient === 'undefined') {
+      // Avoid calling declarations twise. Loading other twice so rollover works.
 
-  d3.csv(community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv").then(function(data){
-    data.forEach(function(d) {
-      d.ACID=+d.ACID
-      d.ENRG=+d.ENRG
-      d.ETOX=+d.ETOX
-      d.EUTR=+d.EUTR
-      d.FOOD=+d.FOOD
-      d.GCC=+d.GCC
-      d.HAPS=+d.HAPS
-      d.HAZW=+d.HAZW
-      d.HC=+d.HC
-      d.HNC=+d.HNC
-      d.HRSP=+d.HRSP
-      d.HTOX=+d.HTOX
-      d.JOBS=+d.JOBS
-      d.LAND=+d.LAND
-      d.METL=+d.METL
-      d.MINE=+d.MINE
-      d.MSW=+d.MSW
-      d.NREN=+d.NREN
-      d.OZON=+d.OZON
-      d.PEST=+d.PEST
-      d.REN=+d.REN
-      d.SMOG=+d.SMOG
-      d.VADD=+d.VADD
-      d.WATR=+d.WATR
-      d.GHG=+d.GHG
+      xScale = d3.scaleLog()
+        .range([0,width])
+        .clamp(true);
+
+      yScale = d3.scaleLog()
+        .range([height, 0])
+        .clamp(true);
+
+      zScale = d3.scalePow()
+        .exponent(0.2)
+          .range([2,40]);
+
+      line = d3.line();
+
+      myTickFormat = function (d) {//Logic to reduce big numbers
+        var f = d3.format(".1f");
+        var limits = [1000000000, 1000000, 1000];
+        var shorteners = ['B','M','K'];
+        if(d>=1000){
+          for(var i in limits) {
+            if(d > limits[i]) {
+              d=(d/limits[i]).toFixed(2) + shorteners[i];
+            }
+          }
+        }else if(d>=0.000001 && d<1000){
+          d=parseFloat((d).toFixed(7).toString())
+        }else{
+          for(j=-6;j>=-24;j--){
+            if(d>=Math.pow(10,j-1) && d<Math.pow(10,j)){
+              d=(d*Math.pow(10,1-j)).toFixed(1)+"*10^-"+(1-j)
+            }
+          }
+          
+        }
+        return d;
+      };
+
+      xAxis = d3.axisBottom()
+        .scale(xScale)
+        .tickSize(-height)
+        .tickPadding(8)
+
+        
+        .ticks(8,myTickFormat)
+
+      yAxis = d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-width)
+        .tickPadding(8)
+        .ticks(5,myTickFormat)
+
+      // For rollover popup
+      rolloverDiv = d3.select(parentId).append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+
+
+      bubbleSvg = d3.select(parentId).append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("id","svg-parent")
+        .append("g")
+        .attr("id","graph-plane")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+      bubbleSvg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height) + ")")
+
+        .call(xAxis.ticks(8,myTickFormat))
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)").style("text-anchor", "start");
+
+      bubbleSvg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate("  +0+ ",0)")
+        .call(yAxis.ticks(5,myTickFormat));
+
+      bubbleSvg.append("path")
+        .attr("class","trendline")
+        .attr("stroke-width", 1)
+        .style("stroke","steelblue")
+        .style("fill","none");
+
+      bubbleGradient = bubbleSvg.append("svg:defs")
+        .append("svg:radialGradient")
+        .attr("id", "gradient")
+        .attr("cx", "50%")    //The x-center of the gradient
+        .attr("cy", "50%")    //The y-center of the gradient
+        .attr("r", "50%")  //The radius of the gradient
+        .attr("spreadMethod", "pad");
+
+      bubbleGradient.append("svg:stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#F6BDC0")
+        .attr("stop-opacity", 1);
+
+      bubbleGradient.append("svg:stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "red")
+        .attr("stop-opacity", 1);
+
+
+    }
+
+
+
+
+
+    // TODO: Activate Georgia option when ready
+    //dataObject1.stateshown=13;
+    let params = loadParams(location.search,location.hash);
+
+    if(params["geo"]){
+      geo=params["geo"]
+      if (geo.includes(",")){
+          geos=geo.split(",")
+          dataObject1.stateshown=(geos[0].split("US")[1]).slice(0,2)
+      }else{
+          dataObject1.stateshown=(geo.split("US")[1]).slice(0,2)
+      }
+    }
+    if(dataObject1.stateshown=='13'){
+      model='_GA'
+    }else{
+      model=''
+    }
+    var community_data_root = "https://model.earth";
+
+    // Probably needs to be regenerated for USSEEIOv2.0
+    // https://github.com/modelearth/community-data/tree/master/us/indicators
+
+    let sectorCSV = community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv";
+    
+    // Not working with the new file Wes provided
+    //let sectorCSV = localsite_app.localsite_root() + "../io/charts/bubble/data/indicators_sectors"+model+".csv";
+    //alert(sectorCSV);
+    d3.csv(sectorCSV ).then(function(data){
+      data.forEach(function(d) {
+        d.ACID=+d.ACID
+        d.ENRG=+d.ENRG
+        d.ETOX=+d.ETOX
+        d.EUTR=+d.EUTR
+        d.FOOD=+d.FOOD
+        d.GCC=+d.GCC
+        d.HAPS=+d.HAPS
+        d.HAZW=+d.HAZW
+        d.HC=+d.HC
+        d.HNC=+d.HNC
+        d.HRSP=+d.HRSP
+        d.HTOX=+d.HTOX
+        d.JOBS=+d.JOBS
+        d.LAND=+d.LAND
+        d.METL=+d.METL
+        d.MINE=+d.MINE
+        d.MSW=+d.MSW
+        d.NREN=+d.NREN
+        d.OZON=+d.OZON
+        d.PEST=+d.PEST
+        d.REN=+d.REN
+        d.SMOG=+d.SMOG
+        d.VADD=+d.VADD
+        d.WATR=+d.WATR
+        d.GHG=+d.GHG
+      });
+
+      allData = data;
+
+      let params = loadParams(location.search,location.hash);
+      params = mix(params,param); // Gives priority to params, param includes include path value and page settings.
+      if (params.x && params.y && params.z) {
+        $("#graph-picklist-x").val(params.x);
+        $("#graph-picklist-y").val(params.y);
+        $("#graph-picklist-z").val(params.z);
+      } else { // Same as below
+        $("#graph-picklist-x").val('ENRG');
+        $("#graph-picklist-y").val('WATR');
+        $("#graph-picklist-z").val('JOBS');
+      }
+
+
+
+      // Initial load
+      // To do: invoke the following when something like param load=true reside in embed
+      
+      if(document.getElementById("mySelect").checked){
+        midFunc(d3.select("#graph-picklist-x").node().value,
+        d3.select("#graph-picklist-y").node().value,
+        d3.select("#graph-picklist-z").node().value,
+        params,"region");
+        //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
+      }else{
+        midFunc(d3.select("#graph-picklist-x").node().value,
+        d3.select("#graph-picklist-y").node().value,
+        d3.select("#graph-picklist-z").node().value,
+        params,"all");
+        //document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
+      }
+      
+
+      d3.selectAll(".graph-picklist").on("change",function(){
+        // Update hash and trigger hashChange event. Resides in localsite.js
+        goHash({"x":$("#graph-picklist-x").val(),"y":$("#graph-picklist-y").val(),"z":$("#graph-picklist-z").val()});
+        //updateChart(d3.select("#graph-picklist-x").node().value,
+        ///  d3.select("#graph-picklist-y").node().value,
+        //  d3.select("#graph-picklist-z").node().value);
+      }) 
     });
 
-    allData = data;
 
-    let params = loadParams(location.search,location.hash);
-    params = mix(params,param); // Gives priority to params, param includes include path value and page settings.
-    if (params.x && params.y && params.z) {
-      $("#graph-picklist-x").val(params.x);
-      $("#graph-picklist-y").val(params.y);
-      $("#graph-picklist-z").val(params.z);
-    } else { // Same as below
-      $("#graph-picklist-x").val('ENRG');
-      $("#graph-picklist-y").val('WATR');
-      $("#graph-picklist-z").val('JOBS');
-    }
-
-
-
-    // Initial load
-    // To do: invoke the following when something like param load=true reside in embed
-    
-    if(document.getElementById("mySelect").checked){
-      midFunc(d3.select("#graph-picklist-x").node().value,
-      d3.select("#graph-picklist-y").node().value,
-      d3.select("#graph-picklist-z").node().value,
-      params,"region");
-      //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
-    }else{
-      midFunc(d3.select("#graph-picklist-x").node().value,
-      d3.select("#graph-picklist-y").node().value,
-      d3.select("#graph-picklist-z").node().value,
-      params,"all");
-      //document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
-    }
-    
-
-    d3.selectAll(".graph-picklist").on("change",function(){
-      // Update hash and trigger hashChange event. Resides in localsite.js
-      goHash({"x":$("#graph-picklist-x").val(),"y":$("#graph-picklist-y").val(),"z":$("#graph-picklist-z").val()});
-      //updateChart(d3.select("#graph-picklist-x").node().value,
-      ///  d3.select("#graph-picklist-y").node().value,
-      //  d3.select("#graph-picklist-z").node().value);
-    }) 
-  });
+  } else if (attempts<100) { // Wait a milisecond and try again
+    setTimeout( function() {
+      consoleLog("try displayImpactBubbles again")
+      displayImpactBubbles(attempts+1);
+    }, 10 );
+  } else {
+    consoleLog("ERROR: displayImpactBubbles exceeded 100 attempts.");
+  }
 };
 
 
 //not used here
+/*
 var ordinalDomain = ["1-100m", "100-500m", "500m-1km", "1-5km", "5-10km", "Over 10km"];
 var ordinal = d3.scaleOrdinal() // Becomes scaleOrdinal in v4
   .domain(ordinalDomain)
   .range(["blue","#7479BC","#BDE7AE","#ECF809","orange","magenta"]); // Not in use here, from wind/js/regression.js
-
+*/
 
 function midFunc(x,y,z,params,boundry){
 
@@ -571,6 +610,7 @@ function midFunc(x,y,z,params,boundry){
 }
 
 function updateChart(x,y,z,useeioList,boundry){
+
   if (!(x && y && z)) { // Same as above
     x = 'ENRG';
     y = 'WATR';
@@ -671,7 +711,6 @@ function updateChart(x,y,z,useeioList,boundry){
     })
     
     //Append any new elements and transition them as well
-    //alert("load")
 
     // BUGBUG - load occurs initially, but none of the following until the second time called.
     selectedCircles.enter()
@@ -733,10 +772,10 @@ function updateChart(x,y,z,useeioList,boundry){
           .attr('stroke-width', 4)
           .attr("stroke-opacity", 1)
         }
-        div.transition()
+        rolloverDiv.transition()
           .duration(200)
           .style("opacity", .9);               
-        div.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.industry_detail + "</b><br/><b> " +x1+":</b> "+d.x+ "<br/><b> " +y1+":</b> "+ d.y + "<br/><b>" +z1+":</b> "+ d.z+'</span >')
+        rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.industry_detail + "</b><br/><b> " +x1+":</b> "+d.x+ "<br/><b> " +y1+":</b> "+ d.y + "<br/><b>" +z1+":</b> "+ d.z+'</span >')
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px");                     
       })
@@ -827,7 +866,7 @@ function updateChart(x,y,z,useeioList,boundry){
           .attr("stroke-opacity", 0.7)
           .style("fill-opacity" , 0.5)
         } 
-        div.transition()
+        rolloverDiv.transition()
           .duration(500)
           .style("opacity", 0);
                         
@@ -989,7 +1028,7 @@ if (hiddenhash.naics) { // Set in naics.js
     console.log("bubble chart init. hiddenhash.naics value: " + hiddenhash.naics);
     $(document).ready(function(){
       alert("hiddenhash.naics " + hiddenhash.naics)
-       displayImpactBubbles(); // Resides in bubble.js
+       displayImpactBubbles(1); // Resides in bubble.js
     });
 }
 */
