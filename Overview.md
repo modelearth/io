@@ -6,7 +6,7 @@ The U.S. Environmental Protection Agency (EPA) is partnering with <span style="d
 Embedding input-output maps and charts is easy. Here's a sample to try:
 
 ```
-<script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?display=everything&show=farmfresh&state=GA"></script>
+<script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?display=everything&show=farmfresh&showheader=false&state=GA"></script>
 ```
 
 Read more [about the model](about), view [current projects](../../community/) and join in the [upcoming web challenge](../../community/challenge/).
