@@ -9,7 +9,7 @@ Embedding input-output maps and charts is easy. Here's a sample to try:
 <script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?display=everything&show=farmfresh&showheader=false&state=GA"></script>
 ```
 
-Read more [about the model](about), view [current projects](../../community/) and join in the [upcoming web challenge](../../community/challenge/).
+Read more [about the model](about), view [current projects](../../community/projects/) and join in the [upcoming web challenge](../../community/challenge/).
 
 
 ## Opportunities for communities include
