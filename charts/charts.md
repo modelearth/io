@@ -11,7 +11,7 @@ Samples:
 [Getting started with localsite](https://model.earth/localsite/start/) - clone [io repo](https://github.com/modelearth/io/) and [localsite repo](https://github.com/modelearth/localsite/) into the same web root.  
 
 <!--
-## Environmentally-Enabled <span style="white-space:nowrap">Input-Output Model</span>
+## Environmentally-Extended <span style="white-space:nowrap">Input-Output Model</span>
 
 In RStudio
 Tools > Install Packages > devtools

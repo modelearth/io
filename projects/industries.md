@@ -1,6 +1,6 @@
 # Machine Learning Tools  
 
-### Environmentally-Enabled Impact Evaluator
+### Environmentally-Extended Impact Evaluator
 
 [Industry Impact Evaluator](../../localsite/info/) - NAICS sectors by county&nbsp;and&nbsp;zip
 

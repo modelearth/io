@@ -6,7 +6,7 @@ Our [Beyond Carbon Web Challenge](../../community/challenge/) is open to K-12 st
 
 ## Resources
 
-Learn about the science and principles behind environmentally-enabled input-output (EEIO).
+Learn about the science and principles behind environmentally-extended input-output (EEIO).
 
 - [IO Charts - Impact Widgets](/io/charts/)  
 - <a href="http://epa.gov/smm" target="_parent">US EPA Sustainable Materials Management (SMM)</a>  
