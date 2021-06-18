@@ -9,6 +9,7 @@ let indicatorSets = {
     "HCAN": "Health",
     "HNCN": "Health",
     "HTOX": "Health",
+    "HRSP": "Health",
     "HRSP": "Air",
     "OZON": "Air",
     "SMOG": "Air",

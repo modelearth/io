@@ -6,7 +6,7 @@
 Samples: 
 <a href="../../localsite/info/#state=GA&regiontitle=Coastal+Georgia&geo=US13127,US13039,US13191,US13179,US13029,US13051">Coastal Georgia</a> <span style="position:absolute; font-size:35px; line-height:13px; padding:3px 0 0 1px">&#8227;</span> &nbsp;&nbsp; &nbsp; 
 <a href="../../localsite/info/#show=bioeconomy&state=GA&regiontitle=Coastal+Georgia&geo=US13127,US13039,US13191,US13179,US13029,US13051">Bioeconomy and Energy</a>
-                
+
 
 [Getting started with localsite](https://model.earth/localsite/start/) - clone [io repo](https://github.com/modelearth/io/) and [localsite repo](https://github.com/modelearth/localsite/) into the same web root.  
 
@@ -36,7 +36,7 @@ The React widgets in the [io repo](https://github.com/modelearth/io/) originate 
 You can make widget updates in the [model.earth io repo](https://github.com/modelearth/io/) and we'll push into the EPA repo from [StateData](https://github.com/StateData/useeio-widgets/).  
 The io repo includes additional code for displaying widgets. We also publish via the [io build folder](../build).  
 
-- [Inflow-Outflow Chart](inflow-outflow/#set=prosperity&indicators=VADD,JOBS) - [Tires](inflow-outflow/#sectors=326210&set=prosperity&indicators=JOBS,VADD) - (<a href="../build/slider.html#indicators=ENRG,GHG,VADD&sectors=113000,327310,327400,333613,335912,336111,562111,562212&page=1">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
+- [Inflow-Outflow Chart](inflow-outflow/#set=prosperity&indicators=VADD,JOBS) - [Tires](inflow-outflow/#sectors=326210&set=prosperity&indicators=JOBS,VADD) - (<a href="../build/slider.html#indicators=ENRG,GHG,VADD&sectors=113000,327310,327400,333613,335912,336111,562111,562212">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/slider.html#sectors=322130,325520,327910,541200)-->  
 - [Sector List - Mosaic](../build/sector_list.html?view=mosaic&count=50)  
 - [Sector List - Mosaic Limit Sectors](../build/sector_list.html?naics=333613,335912,336111&view=mosaic&count=50)  
 - [Sector List - Display Values](../build/sector_list.html?view=mosaic&showvalues=true)  
