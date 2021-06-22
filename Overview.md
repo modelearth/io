@@ -34,3 +34,5 @@ Learn more about [community participation](communities).
 between industries, households, and the environment in communities.  
 
 - [The Innovation Economy](https://hbr.org/podcast/2019/04/the-innovation-economy) - Economist Mariana Mazzucato talks about Entrepreneurial Ecosystems
+
+- [Community Carbon Capture](../../community/carbon-capture/) - How manufacturers and municipalities are reusing material to capture carbon and generate clean energy from waste streams.
