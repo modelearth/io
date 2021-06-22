@@ -4,7 +4,8 @@
 </div>
 [Local Industry Evaluator](../../localsite/info/) - Contains multiple widgets - Leaflet, JQuery and React  
 App Samples: &nbsp;
-<a href="../../apps/coastal/">Coastal Georgia</a> &nbsp;|&nbsp; 
+<a href="../../apps/">Overview</a> &nbsp;|&nbsp; 
+<a href="../../apps/coastal/">Coastal Recycling</a> &nbsp;|&nbsp; 
 <a href="../../apps/ev/">EV Manufacturing</a>
 
 
