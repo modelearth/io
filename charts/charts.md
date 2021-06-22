@@ -3,12 +3,13 @@
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
 [Local Industry Evaluator](../../localsite/info/) - Contains multiple widgets - Leaflet, JQuery and React  
-Samples: 
-<a href="../../localsite/info/#state=GA&regiontitle=Coastal+Georgia&geo=US13127,US13039,US13191,US13179,US13029,US13051">Coastal Georgia</a> <span style="position:absolute; font-size:35px; line-height:13px; padding:3px 0 0 1px">&#8227;</span> &nbsp;&nbsp; &nbsp; 
-<a href="../../localsite/info/#show=bioeconomy&state=GA&regiontitle=Coastal+Georgia&geo=US13127,US13039,US13191,US13179,US13029,US13051">Bioeconomy and Energy</a>
+App Samples: &nbsp;
+<a href="../../apps/coastal/">Coastal Georgia</a> &nbsp;|&nbsp; 
+<a href="../../apps/ev/">EV Manufacturing</a>
 
 
-[Getting started with localsite](https://model.earth/localsite/start/) - clone [io repo](https://github.com/modelearth/io/) and [localsite repo](https://github.com/modelearth/localsite/) into the same web root.  
+[Getting started with localsite](https://model.earth/localsite/start/)<br>
+Add a page to the apps repo and participate in our [Sustainable Communities Web Challenge](../../community/challenge/)  
 
 <!--
 ## Environmentally-Extended <span style="white-space:nowrap">Input-Output Model</span>
