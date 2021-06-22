@@ -480,7 +480,7 @@ function displayImpactBubbles(attempts) {
     let sectorCSV = community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv";
     
     // Not working with the new file Wes provided
-    //let sectorCSV = localsite_app.localsite_root() + "../io/charts/bubble/data/indicators_sectors"+model+".csv";
+    //let sectorCSV = local_app.localsite_root() + "../io/charts/bubble/data/indicators_sectors"+model+".csv";
     //alert(sectorCSV);
     d3.csv(sectorCSV ).then(function(data){
       data.forEach(function(d) {
