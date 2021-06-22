@@ -2,7 +2,7 @@
 
 <!--
 We're looking to bring on board 2-3 local <span style="display:none" class="georgia">Georgia</span> communities. 
--->The US EPA is creating [new input-output tools](../../community/tools/) for communities pursuing projects involving waste-to-energy, bioproducts and local environmental clean-up. Community participants include a coalition of representatives of diverse interests such as:
+-->The US EPA is creating [new input-output tools](../../community/tools/) for communities pursuing projects involving waste-to-energy, bioproducts, green energy innovations, [farm fresh](../../localsite/info/#show=farmfresh&state=MO) local produce, and local environmental clean-up. Community participants include a coalition of representatives of diverse interests such as:
 
 - local government
 - educational institutions
@@ -15,7 +15,7 @@ We're looking to bring on board 2-3 local <span style="display:none" class="geor
 
 ## Community Focused Apps
 
-We've created an app starter repo with samples for community front-end pages.
+We've created an [app starter repo](../../localsite/start/) with samples for community front-end pages:
 
 <a href="../../apps/">App Starter Overview</a><br>
 <a href="../../apps/coastal/">Coastal Recycling</a><br>
