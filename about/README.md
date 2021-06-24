@@ -1,4 +1,4 @@
-# About the Project
+# About the Model
 
 ## Background
 The EPA has created a life cycle model of goods and services in support of <a href="https://www.epa.gov/smm" target="_parent">Sustainable Materials Management</a>.
