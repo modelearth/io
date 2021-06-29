@@ -4,9 +4,7 @@
 Production of fuels and chemicals from biomass can potentially support rural economies and new economic development with positive environmental impacts including capturing carbon, cleaning water, and generating green energy.​ Audits of regional fuel stocks will be conducted for use in net positive energey production from waste.  
 
 [The New Bioeconomy: Advanced Biofuels](../../community/biotech/#advanced)  
-[Bioproducts - Fuels and Chemicals from Biomass](../../community/projects/biomass/)  
 [Bioeconomy Planner - Regional Biomass Industries](/localsite/info/#show=bioeconomy)  
-[Biotech - Agriculture and Forestry Manufacturing, Waste and Energy](../../community/projects/biotech/)  
  
 
 [How to add new technologies to the USEEIO model](../naics/)    
