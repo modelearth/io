@@ -1,7 +1,7 @@
 # Adding New Technologies to US Input-Output Model
 
 This process is being used to add an 
-<a href="../bioeconomy/">Advanced Biofuels technology sector</a> to the US EPA IO model.  
+<a href="../../community/biotech/">Advanced Biofuels technology sector</a> to the US EPA IO model.  
 
 
 From [four approaches to new technology modeling using USEEIO model](https://github.com/GeorgiaData/smartdata/blob/master/interns/NewTechnologyModelingOptions.md), the selected approach below corresponds to 1b and the specific methodological steps, to modify USEEIO to include an additional new bioeconomy sector, can be found in [View Steps](add/). 
